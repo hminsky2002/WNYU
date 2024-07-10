@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import ScheduleItem from './ScheduleItem';
 import type { Show } from '@wnyu/spinitron-sdk';
+import type { Dispatch, SetStateAction } from 'react';
 
 interface ScheduleListProps {
   shows: Show[];
+  setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
 
 const daysOfWeek = [
@@ -19,7 +21,10 @@ const daysOfWeek = [
   'Saturday',
 ];
 
-export default function ScheduleList({ shows }: ScheduleListProps) {
+export default function ScheduleList({
+  shows,
+  setActiveShowId,
+}: ScheduleListProps) {
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
   const [dayFilter, setDayFilter] = useState<string>(
     daysOfWeek[new Date().getDay()],
@@ -66,7 +71,11 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
         ))}
       </div>
       {filteredShows.map((show) => (
-        <ScheduleItem show={show} key={show.id} />
+        <ScheduleItem
+          show={show}
+          key={show.id}
+          setActiveShowId={setActiveShowId}
+        />
       ))}
     </>
   );
