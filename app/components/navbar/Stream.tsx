@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MetaData } from '../types';
+import { MetaData } from '../../types';
 
 export default function Stream() {
   const [currentSong, setCurrentSong] = useState('');

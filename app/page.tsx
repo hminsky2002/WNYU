@@ -1,4 +1,4 @@
-import Stream from './components/Stream';
+import Stream from './components/navbar/Stream';
 
 export default function Home() {
   return (
