@@ -1,3 +1,4 @@
+import ScheduleList from '../components/schedule/ScheduleList';
 import type { ShowsResponse } from '@wnyu/spinitron-sdk';
 
 // We prefetch all shows to get the schedule, but by default the shows
@@ -23,17 +24,16 @@ async function getData(): Promise<ShowsResponse> {
   return output;
 }
 
-export default async function Page() {
+async function ScheduleProvider() {
   const shows = await getData();
+
+  return <ScheduleList shows={shows.items} />;
+}
+
+export default async function Page() {
   return (
     <>
-      <h1>Schedule</h1>
-      {shows.items.map((show) => (
-        <ul className="mx-3 border-2 border-neutral-950 p-5" key={show.id}>
-          <li>{show.title}</li>
-          <li>{show.personas?.[0].name}</li>
-        </ul>
-      ))}
+      <ScheduleProvider />
     </>
   );
 }
