@@ -1,4 +1,4 @@
-import ScheduleList from '../components/schedule/ScheduleList';
+import ScheduleGrid from '../components/schedule/SchedulePanel';
 import type { ShowsResponse } from '@wnyu/spinitron-sdk';
 
 // We prefetch all shows to get the schedule, but by default the shows
@@ -27,7 +27,7 @@ async function getData(): Promise<ShowsResponse> {
 async function ScheduleProvider() {
   const shows = await getData();
 
-  return <ScheduleList shows={shows.items} />;
+  return <ScheduleGrid shows={shows.items} />;
 }
 
 export default async function Page() {
