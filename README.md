@@ -4,6 +4,8 @@ This is a Next.js application written for WNYU, NYU's oldest and greatest
 college radio station. It is meant to consume data from [spinitron](https://spinitron.com/), via
 a [proxy api](https://github.com/hminsky2002/WNYUAPI).
 
+Figma Project Hosted at https://www.figma.com/design/5s9bLg6lHHR3tIIiCTQxvw/Untitled?node-id=0-1&t=QTn1qRLSCedR863H-1
+
 # Next.js Boilerplate Information
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
