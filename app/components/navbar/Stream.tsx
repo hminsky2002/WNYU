@@ -1,26 +1,34 @@
 'use client';
 
+import { SpinitronMetadata } from '@wnyu/spinitron-sdk';
 import { useState, useEffect } from 'react';
-import { MetaData } from '../../types';
+import { useMetadata } from '@/app/api';
+
+const REFRESH_STREAM_INTERVAL = 5000;
 
 export default function Stream() {
-  const [currentSong, setCurrentSong] = useState('');
+  const [metadataResponse, refreshMetadata] = useMetadata();
+  const [metadata, setMetadata] = useState<SpinitronMetadata>();
   useEffect(() => {
-    const eventSource = new EventSource(
-      `${process.env.NEXT_PUBLIC_STREAM_URL as string}/metadata`,
-    );
-    eventSource.onmessage = (event) => {
-      const metadata = JSON.parse(event.data as string) as MetaData;
-      const artistTitle = metadata.metadata;
-      setCurrentSong(artistTitle);
+    if (metadataResponse) {
+      setMetadata(metadataResponse);
+    }
+    const intervalId = setInterval(() => {
+      refreshMetadata();
+    }, REFRESH_STREAM_INTERVAL);
+
+    return () => {
+      clearInterval(intervalId);
     };
-    return () => eventSource.close();
-  }, []);
+  }, [metadataResponse, refreshMetadata]);
 
   return (
     <div>
       <audio controls src={process.env.NEXT_PUBLIC_STREAM_URL as string} />
-      <p>{currentSong}</p>
+      <p>{metadata?.song_name}</p>
+      <p>{metadata?.artist_name}</p>
+      <p>{metadata?.dj}</p>
+      <p>{metadata?.playlist_tile}</p>
       <p></p>
     </div>
   );

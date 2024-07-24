@@ -47,6 +47,9 @@
       }
     }
   ],
+  "settings": {
+    "import/core-modules": ["@wnyu/spinitron-sdk"]
+  },
   "env": {
     "es6": true,
     "node": true
