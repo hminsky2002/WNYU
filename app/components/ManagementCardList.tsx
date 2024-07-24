@@ -1,4 +1,4 @@
-import { MANAGEMENT_CARDS_QUERYResult } from '../../../sanity.types';
+import { MANAGEMENT_CARDS_QUERYResult } from '../../sanity.types';
 import { ManagementCard } from './ManagementCard';
 
 export function ManagementCardList({

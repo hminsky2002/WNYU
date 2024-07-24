@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
-import { MANAGEMENT_CARD_QUERYResult } from '../../../sanity.types';
+import { MANAGEMENT_CARD_QUERYResult } from '../../sanity.types';
 
 export function ManagementCard({
   card,

@@ -1,4 +1,8 @@
-import { SpinitronMetadata } from '@wnyu/spinitron-sdk';
+import {
+  PlaylistsResponse,
+  ShowsResponse,
+  SpinitronMetadata,
+} from '@wnyu/spinitron-sdk';
 import { useCallback, useEffect, useState } from 'react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -52,4 +56,9 @@ const useWNYUApi = <T>(
 
 const useMetadata = () => useWNYUApi<SpinitronMetadata>('/metadata');
 
-export { useMetadata };
+const useUpcoming = () => useWNYUApi<ShowsResponse>('/shows/schedule/upcoming');
+
+const useCurrentPlaylist = () =>
+  useWNYUApi<PlaylistsResponse>('/playlists/current/playlist');
+
+export { useMetadata, useUpcoming, useCurrentPlaylist };
