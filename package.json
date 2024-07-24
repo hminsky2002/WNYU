@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@portabletext/react": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.52.1",
     "@wnyu/spinitron-sdk": "^1.0.3",
@@ -23,6 +24,7 @@
     "styled-components": "^6.1.12"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20",
     "@types/react": "^18",
