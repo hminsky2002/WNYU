@@ -1,5 +1,5 @@
 import { PortableText } from '@portabletext/react';
-import { ManagementCardList } from '@/app/components/about/ManagementCardList';
+import { ManagementCardList } from '@/app/components/ManagementCardList';
 import { sanityFetch } from '@/sanity/lib/client';
 import { MANAGEMENT_CARDS_QUERY, ABOUT_TEXT_QUERY } from '@/sanity/lib/queries';
 import type {

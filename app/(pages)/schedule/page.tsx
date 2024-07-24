@@ -1,4 +1,4 @@
-import ScheduleGrid from '../../components/schedule/SchedulePanel';
+import ScheduleGrid from '../../components/SchedulePanel';
 import type { ShowsResponse } from '@wnyu/spinitron-sdk';
 
 // We prefetch all shows to get the schedule, but by default the shows
