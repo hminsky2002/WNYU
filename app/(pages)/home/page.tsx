@@ -1,9 +1,9 @@
-import ActiveShowPanel from '@/app/components/ActiveShowPanel';
+import CurrentShowPanel from '@/app/components/CurrentShowPanel';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ActiveShowPanel />
-    </main>
+    <>
+      <CurrentShowPanel />
+    </>
   );
 }

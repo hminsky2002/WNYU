@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import { CurrentDataProvider } from '../providers/CurrentDataProvider';
+import { DropdownToggleProvider } from '../providers/ToggleProvider';
 
 export default function AppLayout({
   children,
@@ -6,9 +8,14 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Navbar />
-      {children}
-    </>
+    <div>
+      <CurrentDataProvider>
+        <DropdownToggleProvider>
+          <Navbar>
+            <main className="mt-40">{children}</main>
+          </Navbar>
+        </DropdownToggleProvider>
+      </CurrentDataProvider>
+    </div>
   );
 }
