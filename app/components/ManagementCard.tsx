@@ -10,10 +10,10 @@ export function ManagementCard({
   const { name, role, email, picture } = card || {};
 
   return (
-    <div className="flex-col">
+    <div className="py-1">
       {picture?.asset?._ref ? (
         <Image
-          className="w-1/4"
+          className="aspect-square outline outline-offset-[-3px] outline-black"
           src={urlFor(picture?.asset?._ref).width(300).height(300).url()}
           width={300}
           height={300}
@@ -22,7 +22,7 @@ export function ManagementCard({
       ) : null}
       {name ? <p className="text-xl">{name}</p> : null}
       {role ? <p className="text-lg">{role}</p> : null}
-      {email ? <p className="text-sm">{email}</p> : null}
+      {email ? <p className="text-lg">{email}</p> : null}
     </div>
   );
 }

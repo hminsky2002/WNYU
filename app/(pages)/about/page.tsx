@@ -16,12 +16,14 @@ export default async function About() {
   });
   return (
     <>
-      {aboutText?.content ? (
-        <div className="prose prose-lg">
-          <PortableText value={aboutText.content} />
-        </div>
-      ) : null}
-      {cards ? <ManagementCardList cards={cards} /> : null}
+      <div className="px-7">
+        {aboutText?.content ? (
+          <div className="prose mr-auto w-5/6 pb-4 pt-10 leading-5">
+            <PortableText value={aboutText.content} />
+          </div>
+        ) : null}
+        {cards ? <ManagementCardList cards={cards} /> : null}
+      </div>
     </>
   );
 }

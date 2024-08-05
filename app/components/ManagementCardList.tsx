@@ -7,7 +7,7 @@ export function ManagementCardList({
   cards: MANAGEMENT_CARDS_QUERYResult;
 }) {
   return (
-    <ul className="container mx-auto grid grid-cols-2">
+    <ul className="grid w-full auto-rows-fr grid-cols-2 gap-x-6 gap-y-4 md:flex">
       {cards.map((card) => (
         <ManagementCard card={card} key={card.id} />
       ))}
