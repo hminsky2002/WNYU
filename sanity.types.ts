@@ -82,6 +82,7 @@ export type ManagementCard = {
   _rev: string;
   name?: string;
   role?: string;
+  email?: string;
   picture?: {
     asset?: {
       _ref: string;
@@ -196,11 +197,12 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: MANAGEMENT_CARDS_QUERY
-// Query: *[_type=="managementCard"]{'id':_id,name,role,picture}
+// Query: *[_type=="managementCard"]{'id':_id,name,role,email,picture}
 export type MANAGEMENT_CARDS_QUERYResult = Array<{
   id: string;
   name: string | null;
   role: string | null;
+  email: string | null;
   picture: {
     asset?: {
       _ref: string;
@@ -214,11 +216,12 @@ export type MANAGEMENT_CARDS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: MANAGEMENT_CARD_QUERY
-// Query: *[_type=="managementCard"][0]{'id':_id,name,role,picture}
+// Query: *[_type=="managementCard"][0]{'id':_id,name,role,email,picture}
 export type MANAGEMENT_CARD_QUERYResult = {
   id: string;
   name: string | null;
   role: string | null;
+  email: string | null;
   picture: {
     asset?: {
       _ref: string;

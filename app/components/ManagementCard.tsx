@@ -7,7 +7,7 @@ export function ManagementCard({
 }: {
   card: MANAGEMENT_CARD_QUERYResult;
 }) {
-  const { name, role, picture } = card || {};
+  const { name, role, email, picture } = card || {};
 
   return (
     <div className="flex-col">
@@ -22,6 +22,7 @@ export function ManagementCard({
       ) : null}
       {name ? <p className="text-xl">{name}</p> : null}
       {role ? <p className="text-lg">{role}</p> : null}
+      {email ? <p className="text-sm">{email}</p> : null}
     </div>
   );
 }
