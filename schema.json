@@ -404,6 +404,13 @@
         },
         "optional": true
       },
+      "email": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "picture": {
         "type": "objectAttribute",
         "value": {
