@@ -10,8 +10,8 @@ export default function UpcomingList() {
   const [upcomingResponse, refreshUpcomingResponse] = useUpcoming();
   const [upcoming, setUpcoming] = useState<Show[]>();
   useEffect(() => {
-    if (upcomingResponse?.items) {
-      setUpcoming(upcomingResponse.items);
+    if (upcomingResponse) {
+      setUpcoming(upcomingResponse);
     }
     const intervalId = setInterval(() => {
       refreshUpcomingResponse();
@@ -23,15 +23,11 @@ export default function UpcomingList() {
   }, [upcomingResponse, refreshUpcomingResponse]);
 
   return (
-    <div>
-      <div>Coming Up Next:</div>
-      <div>
-        {upcoming?.map((show) => (
-          <div className="py-2" key={show.id}>
-            <p>{show.title}</p>
-          </div>
-        ))}
-      </div>
+    <div className="w-full text-left">
+      <div>UP NEXT:</div>
+      {upcoming && upcoming[1] && (
+        <div className="text-xl font-extrabold">{upcoming[1].title}</div>
+      )}
     </div>
   );
 }
