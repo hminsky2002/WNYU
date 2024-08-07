@@ -19,9 +19,7 @@ export default function Stream() {
           .then(() => {
             setIsPlaying(true);
           })
-          .catch((error) => {
-            console.error('Error playing the audio stream:', error);
-          });
+          .catch(() => {});
       }
     }
   };

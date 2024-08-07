@@ -8,6 +8,8 @@ import type { Dispatch, SetStateAction } from 'react';
 
 interface ScheduleListProps {
   shows: Show[];
+  activeShowId?: number;
+  toggleScheduleDisplay: boolean;
   setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
 
@@ -23,6 +25,8 @@ const daysOfWeek = [
 
 export default function ScheduleList({
   shows,
+  activeShowId,
+  toggleScheduleDisplay,
   setActiveShowId,
 }: ScheduleListProps) {
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
@@ -49,9 +53,8 @@ export default function ScheduleList({
   }, [dayFilter, nameFilter, shows]);
 
   return (
-    <>
-      <h1>Schedule</h1>
-      <div>
+    <div className="w-full">
+      <div className="overflow-x-scroll md:flex">
         <div className="flex">
           <MagnifyingGlassIcon className="size-6" />
           <input
@@ -63,20 +66,26 @@ export default function ScheduleList({
         {daysOfWeek.map((day) => (
           <div
             key={day}
-            className={`cursor-pointer px-3 py-1 ${dayFilter === day ? 'text-black' : 'text-gray-200'}`}
+            className={`cursor-pointer px-3 py-1 text-lg font-bold ${dayFilter === day ? 'text-black' : 'text-gray-200'}`}
             onClick={() => setDayFilter(day)}
           >
             {day}
           </div>
         ))}
       </div>
-      {filteredShows.map((show) => (
-        <ScheduleItem
-          show={show}
-          key={show.id}
-          setActiveShowId={setActiveShowId}
-        />
-      ))}
-    </>
+      <div
+        className={`max-h-[800px] overflow-y-auto ${toggleScheduleDisplay ? 'md:mx-20 md:grid md:grid-cols-2 md:gap-y-10' : ''}`}
+      >
+        {filteredShows.map((show) => (
+          <ScheduleItem
+            show={show}
+            key={show.id}
+            setActiveShowId={setActiveShowId}
+            activeShowId={activeShowId}
+            toggleScheduleDisplay={toggleScheduleDisplay}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

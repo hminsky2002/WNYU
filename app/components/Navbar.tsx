@@ -40,7 +40,7 @@ export default function Navbar({
     <>
       <div className="fixed left-0 right-0 top-0 z-50 w-full bg-white">
         <div
-          className={`flex border-b-2 p-4 transition-colors ease-in-out md:p-6 ${
+          className={`flex border-b-2 border-black p-4 transition-colors ease-in-out md:p-6 ${
             context?.toggle ? 'bg-black text-white' : 'bg-white'
           } md:bg-white md:text-black`}
         >

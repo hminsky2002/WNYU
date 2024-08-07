@@ -9,16 +9,28 @@ interface ScheduleListProps {
   shows: Show[];
 }
 
-export default function ScheduleGrid({ shows }: ScheduleListProps) {
+export default function SchedulePanel({ shows }: ScheduleListProps) {
   const [activeShowId, setActiveShowId] = useState<number>();
+  const [toggleScheduleDisplay, setToggleScheduleDisplay] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:space-x-4">
-      <div className="w-full lg:w-2/3">
-        <ScheduleList shows={shows} setActiveShowId={setActiveShowId} />
+    <div className="md:grid md:grid-cols-3">
+      <div className="md:col-span-2">
+        <ScheduleList
+          shows={shows}
+          setActiveShowId={setActiveShowId}
+          activeShowId={activeShowId}
+          toggleScheduleDisplay={toggleScheduleDisplay}
+        />
       </div>
-      <div className="w-full lg:w-1/3">
-        <ShowDetail show={shows.find((show) => show.id === activeShowId)} />
+      <div className="md:col-start-3">
+        {activeShowId && (
+          <ShowDetail
+            show={shows.find((show) => show.id === activeShowId)}
+            toggleScheduleDisplay={toggleScheduleDisplay}
+            setToggleScheduleDisplay={setToggleScheduleDisplay}
+          />
+        )}
       </div>
     </div>
   );
