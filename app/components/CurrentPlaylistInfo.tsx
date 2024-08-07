@@ -30,7 +30,7 @@ export default function CurrentPlaylistInfo({
           <div className="text-xl">{metadata?.playlist_title}</div>
           <div className="text-sm">
             {metadata?.dj
-              ? `Hosted By: ${metadata.dj.toUpperCase()}`
+              ? `hosted by: ${metadata.dj.toUpperCase()}`
               : 'unhosted'}
           </div>
           {playlist?.start && playlist?.end && (

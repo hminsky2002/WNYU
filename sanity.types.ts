@@ -74,6 +74,27 @@ export type Slug = {
   source?: string;
 };
 
+export type Announcement = {
+  _id: string;
+  _type: 'announcement';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  subtitle?: string;
+  announcementImage?: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  };
+};
+
 export type ManagementCard = {
   _id: string;
   _type: 'managementCard';
@@ -187,6 +208,7 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Slug
+  | Announcement
   | ManagementCard
   | SanityImageCrop
   | SanityImageHotspot
@@ -255,4 +277,38 @@ export type ABOUT_TEXT_QUERYResult = {
     _type: 'block';
     _key: string;
   }> | null;
+} | null;
+// Variable: ANNOUNCEMENTS_QUERY
+// Query: *[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}
+export type ANNOUNCEMENTS_QUERYResult = Array<{
+  title: string | null;
+  subtitle: string | null;
+  announcementImage: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+}>;
+// Variable: ANNOUNCEMENT_QUERY
+// Query: *[_type=="announcement"][0]{title,subtitle,announcementImage}
+export type ANNOUNCEMENT_QUERYResult = {
+  title: string | null;
+  subtitle: string | null;
+  announcementImage: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
 } | null;
