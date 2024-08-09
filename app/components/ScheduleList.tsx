@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import ScheduleItem from './ScheduleItem';
+import ScheduleSearchBar, { daysOfWeek } from './ScheduleSearchBar';
 import type { Show } from '@wnyu/spinitron-sdk';
 import type { Dispatch, SetStateAction } from 'react';
 
@@ -12,16 +12,6 @@ interface ScheduleListProps {
   toggleScheduleDisplay: boolean;
   setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
-
-const daysOfWeek = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
 
 export default function ScheduleList({
   shows,
@@ -54,25 +44,12 @@ export default function ScheduleList({
 
   return (
     <div className="w-full">
-      <div className="overflow-x-scroll md:flex">
-        <div className="flex">
-          <MagnifyingGlassIcon className="size-6" />
-          <input
-            type="text"
-            value={nameFilter}
-            onChange={(e) => setNameFilter(e.target.value)}
-          />
-        </div>
-        {daysOfWeek.map((day) => (
-          <div
-            key={day}
-            className={`cursor-pointer px-3 py-1 text-lg font-bold ${dayFilter === day ? 'text-black' : 'text-gray-200'}`}
-            onClick={() => setDayFilter(day)}
-          >
-            {day}
-          </div>
-        ))}
-      </div>
+      <ScheduleSearchBar
+        dayFilter={dayFilter}
+        nameFilter={nameFilter}
+        setDayFilter={setDayFilter}
+        setNameFilter={setNameFilter}
+      />
       <div
         className={`max-h-[800px] overflow-y-auto ${toggleScheduleDisplay ? 'md:mx-20 md:grid md:grid-cols-2 md:gap-y-10' : ''}`}
       >
