@@ -14,7 +14,7 @@ export default function ShowDetailPanel({
   setToggleScheduleDisplay,
 }: ShowDetailPanelProps) {
   return (
-    <>
+    <div className="hidden md:flex">
       {show && (
         <div className="overflow-y-auto border-l-2 border-black bg-white">
           <ShowDetail
@@ -24,6 +24,6 @@ export default function ShowDetailPanel({
           />
         </div>
       )}
-    </>
+    </div>
   );
 }

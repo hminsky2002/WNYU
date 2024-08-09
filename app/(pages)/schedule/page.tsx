@@ -32,7 +32,7 @@ async function ScheduleProvider() {
 
 export default async function Page() {
   return (
-    <div className="md:fixed">
+    <div className="">
       <ScheduleProvider />
     </div>
   );
