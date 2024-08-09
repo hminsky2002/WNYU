@@ -38,16 +38,37 @@ export default function Navbar({
 
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-50 w-full bg-white">
+      <div className="fixed left-0 right-0 top-0 z-50 w-full justify-between bg-white">
         <div
-          className={`flex border-b-2 border-black p-4 transition-colors ease-in-out md:p-6 ${
+          className={`flex justify-between border-b-2 border-black p-4 transition-colors ease-in-out ${
             context?.toggle ? 'bg-black text-white' : 'bg-white'
           } md:bg-white md:text-black`}
         >
           <Stream />
-          <div onClick={handleClick} className="cursor-pointer">
-            Live Now: {metadata?.playlist_title} - {metadata?.dj} Current Song:{' '}
-            {metadata?.song_name}
+          <div
+            onClick={handleClick}
+            className="enable-animation flex cursor-pointer overflow-hidden text-xl font-bold"
+          >
+            <div className="marquee transparent-border">
+              <div className="marquee__content">
+                <div className="marquee__item">
+                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
+                  <span>
+                    Live Now: {metadata?.playlist_title} - {metadata?.dj}{' '}
+                    Current Song: {metadata?.song_name}
+                  </span>
+                </div>
+              </div>
+              <div aria-hidden="true" className="marquee__content">
+                <div className="marquee__item">
+                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
+                  <span>
+                    Live Now: {metadata?.playlist_title} - {metadata?.dj}{' '}
+                    Current Song: {metadata?.song_name}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
           <NavMenu />
         </div>

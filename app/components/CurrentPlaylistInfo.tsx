@@ -18,7 +18,7 @@ export default function CurrentPlaylistInfo({
   return (
     <>
       {dropdown ? (
-        <>
+        <div className="text-left">
           {playlist?.image && (
             <Image
               src={playlist.image}
@@ -27,14 +27,16 @@ export default function CurrentPlaylistInfo({
               alt={playlist.title || ''}
             />
           )}
-          <div className="text-xl">{metadata?.playlist_title}</div>
-          <div className="text-sm">
+          <div className="mt-8 text-4xl font-extrabold">
+            {metadata?.playlist_title}
+          </div>
+          <div className="text-lg font-medium">
             {metadata?.dj
               ? `hosted by: ${metadata.dj.toUpperCase()}`
               : 'unhosted'}
           </div>
           {playlist?.start && playlist?.end && (
-            <div>
+            <div className="text-lg font-medium">
               {new Date(playlist.start).toLocaleTimeString()} {' - '}
               {new Date(playlist.end).toLocaleTimeString()}
             </div>
@@ -44,7 +46,7 @@ export default function CurrentPlaylistInfo({
               {trimSpinitronDescriptionString(playlist.episode_description)}
             </div>
           )}
-        </>
+        </div>
       ) : (
         <>
           <div className="w-full text-left">
