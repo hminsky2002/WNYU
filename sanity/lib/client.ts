@@ -1,16 +1,11 @@
-import 'server-only';
-
-import { draftMode } from 'next/headers';
-import { createClient, type QueryOptions, type QueryParams } from 'next-sanity';
-
+import { createClient, type QueryParams } from 'next-sanity';
 import { apiVersion, dataset, projectId } from '../env';
-import { token } from './token';
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: process.env.NODE_ENV === 'development' ? true : false,
 });
 
 export async function sanityFetch<QueryResponse>({
@@ -24,29 +19,9 @@ export async function sanityFetch<QueryResponse>({
   revalidate?: number | false;
   tags?: string[];
 }) {
-  const isDraftMode = draftMode().isEnabled;
-  if (isDraftMode && !token) {
-    throw new Error('Missing environment variable SANITY_API_READ_TOKEN');
-  }
-
-  let dynamicRevalidate = revalidate;
-  if (isDraftMode) {
-    // Do not cache in Draft Mode
-    dynamicRevalidate = 0;
-  } else if (tags.length) {
-    // Cache indefinitely if tags supplied, purge with revalidateTag()
-    dynamicRevalidate = false;
-  }
-
   return client.fetch<QueryResponse>(query, params, {
-    ...(isDraftMode &&
-      ({
-        token: token,
-        perspective: 'previewDrafts',
-        stega: true,
-      } satisfies QueryOptions)),
+    cache: process.env.NODE_ENV === 'development' ? 'no-store' : 'force-cache',
     next: {
-      revalidate: dynamicRevalidate,
       tags,
     },
   });

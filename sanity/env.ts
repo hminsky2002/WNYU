@@ -6,6 +6,11 @@ export const dataset = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET',
 );
 
+export const hookSecret = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET,
+  'Missing environment variable: NEXT_PUBLIC_SANITY_HOOK_SECRET',
+);
+
 export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID',

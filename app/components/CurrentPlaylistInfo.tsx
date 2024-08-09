@@ -49,7 +49,7 @@ export default function CurrentPlaylistInfo({
         <>
           <div className="w-full text-left">
             <p>NOW PLAYING:</p>
-            <div className="text-xl font-extrabold">
+            <div className="text-4xl font-extrabold">
               {metadata?.playlist_title ?? 'WNYU JUKEBOX'}
             </div>
             <div className="text-l font-light">
