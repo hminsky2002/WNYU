@@ -7,6 +7,7 @@ import type { ANNOUNCEMENTS_QUERYResult } from '@/sanity.types';
 export default async function Home() {
   const announcements = await sanityFetch<ANNOUNCEMENTS_QUERYResult>({
     query: ANNOUNCEMENTS_QUERY,
+    tags: ['announcement'],
   });
   return (
     <div>

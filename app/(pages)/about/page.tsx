@@ -10,9 +10,11 @@ import type {
 export default async function About() {
   const cards = await sanityFetch<MANAGEMENT_CARDS_QUERYResult>({
     query: MANAGEMENT_CARDS_QUERY,
+    tags: ['managementCard'],
   });
   const aboutText = await sanityFetch<ABOUT_TEXT_QUERYResult>({
     query: ABOUT_TEXT_QUERY,
+    tags: ['about'],
   });
   return (
     <>
