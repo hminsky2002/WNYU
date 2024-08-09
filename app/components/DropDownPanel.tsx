@@ -14,7 +14,7 @@ export default function DropDownPanel() {
   return (
     <div
       onClick={handleClick}
-      className={`fixed left-0 top-[72px] z-40 h-[calc(100vh-72px)] w-full overflow-y-auto bg-black transition-transform duration-500 ${
+      className={`fixed left-0 top-[50px] z-40 h-[calc(100vh-72px)] w-full overflow-y-auto bg-black transition-transform duration-500 ${
         context?.toggle ? 'translate-y-0' : '-translate-y-full'
       } md:-translate-y-full`}
     >

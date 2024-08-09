@@ -10,7 +10,7 @@ export default function CurrentPlaylistSpinsList({
 }: CurrentPlaylistSpinsProps) {
   return (
     <div
-      className={`border-4 ${dropdown ? 'border-white' : 'border-black'} overflow-y-auto`}
+      className={`mt-8 border-4 ${dropdown ? 'border-white' : 'border-black'} overflow-y-auto`}
     >
       {spins
         ? spins.map((spin) => (

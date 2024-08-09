@@ -25,11 +25,17 @@ export default function Stream() {
   };
 
   return (
-    <div className="size-20 md:size-6">
+    <div>
       {isPlaying ? (
-        <PauseIcon className="cursor-pointer" onClick={handleClick} />
+        <PauseIcon
+          className="size-10 cursor-pointer md:size-7"
+          onClick={handleClick}
+        />
       ) : (
-        <PlayIcon className="cursor-pointer" onClick={handleClick} />
+        <PlayIcon
+          className="size-10 cursor-pointer md:size-7"
+          onClick={handleClick}
+        />
       )}
       <audio
         ref={audioRef}
