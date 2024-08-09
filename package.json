@@ -14,7 +14,7 @@
     "@heroicons/react": "^2.1.5",
     "@portabletext/react": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.52.1",
+    "@sanity/vision": "^3.53.0",
     "@wnyu/spinitron-sdk": "^1.0.4",
     "next": "14.2.5",
     "next-sanity": "^9.4.3",
