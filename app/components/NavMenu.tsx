@@ -1,14 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { EllipsisVerticalIcon, XMarkIcon } from '@heroicons/react/24/solid';
+import { DropdownToggleContext } from '../providers/ToggleProvider';
 
 export default function NavMenu() {
+  const context = useContext(DropdownToggleContext);
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleClick = () => {
     setToggleMenu(!toggleMenu);
+    context?.setToggle(false);
   };
 
   return (
@@ -24,11 +28,21 @@ export default function NavMenu() {
           } flex items-start justify-start md:-translate-y-full`}
         >
           <div className="ml-8 flex flex-col space-y-4 text-3xl font-bold text-white">
-            <Link href="/home">home</Link>
-            <Link href="/schedule">schedule</Link>
-            <Link href="/about">about</Link>
-            <Link href="/">podcasts</Link>
-            <Link href="/">sports</Link>
+            <Link href="/home" onClick={handleClick}>
+              home
+            </Link>
+            <Link href="/schedule" onClick={handleClick}>
+              schedule
+            </Link>
+            <Link href="/about" onClick={handleClick}>
+              about
+            </Link>
+            <Link href="/" onClick={handleClick}>
+              podcasts
+            </Link>
+            <Link href="/" onClick={handleClick}>
+              sports
+            </Link>
           </div>
           <XMarkIcon
             className="absolute right-0 top-0 size-14 text-white"
