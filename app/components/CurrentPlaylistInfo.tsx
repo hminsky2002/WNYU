@@ -49,7 +49,7 @@ export default function CurrentPlaylistInfo({
         </div>
       ) : (
         <>
-          <div className="w-full text-left">
+          <div className="w-full text-left leading-8">
             <p>NOW PLAYING:</p>
             <div className="text-4xl font-extrabold">
               {metadata?.playlist_title ?? 'WNYU JUKEBOX'}
@@ -59,12 +59,21 @@ export default function CurrentPlaylistInfo({
             </div>
           </div>
           {playlist?.image && (
-            <Image
-              src={playlist.image}
-              width={400}
-              height={400}
-              alt={playlist.title || ''}
-            />
+            <div className="group relative mt-4 h-full w-full bg-gray-500 text-white">
+              <Image
+                src={metadata?.cover_art_url || ''}
+                alt={`${metadata?.song_name} cover image`}
+                width={400}
+                height={400}
+                className={`opacity-50`}
+              />
+              <div className="absolute bottom-4 mx-4">
+                <div className="text-4xl font-extrabold">
+                  {metadata?.song_name}
+                </div>
+                <div className="text-xl">{metadata?.artist_name}</div>
+              </div>
+            </div>
           )}
         </>
       )}
