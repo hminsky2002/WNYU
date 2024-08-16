@@ -23,10 +23,10 @@ export default function UpcomingList() {
   }, [upcomingResponse, refreshUpcomingResponse]);
 
   return (
-    <div className="w-full text-left">
+    <div className="mt-20 w-full text-left">
       <div>UP NEXT:</div>
       {upcoming && upcoming[1] && (
-        <div className="text-xl font-extrabold">{upcoming[1].title}</div>
+        <div className="text-4xl font-extrabold">{upcoming[1].title}</div>
       )}
     </div>
   );

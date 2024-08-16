@@ -13,7 +13,7 @@ export function AnnouncementsCarousel({
 }) {
   return (
     <Swiper
-      spaceBetween={0}
+      spaceBetween={1}
       slidesPerView={1}
       className="h-[200px] w-[400px] border-4 border-black md:h-full md:w-full"
     >
