@@ -9,14 +9,12 @@ import type { Dispatch, SetStateAction } from 'react';
 interface ScheduleListProps {
   shows: Show[];
   activeShowId?: number;
-  toggleScheduleDisplay: boolean;
   setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
 
 export default function ScheduleList({
   shows,
   activeShowId,
-  toggleScheduleDisplay,
   setActiveShowId,
 }: ScheduleListProps) {
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
@@ -50,16 +48,13 @@ export default function ScheduleList({
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div
-        className={`max-h-[800px] overflow-y-auto ${toggleScheduleDisplay ? 'md:mx-20 md:grid md:grid-cols-2 md:gap-y-10' : ''}`}
-      >
+      <div className={`max-h-[800px] overflow-y-auto`}>
         {filteredShows.map((show) => (
           <ScheduleItem
             show={show}
             key={show.id}
             setActiveShowId={setActiveShowId}
             activeShowId={activeShowId}
-            toggleScheduleDisplay={toggleScheduleDisplay}
           />
         ))}
       </div>

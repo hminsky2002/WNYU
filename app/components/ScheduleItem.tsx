@@ -1,33 +1,21 @@
 'use client';
 
-import { ShowCard } from './ShowCard';
 import type { Show } from '@wnyu/spinitron-sdk';
 import type { Dispatch, SetStateAction } from 'react';
 
 interface ScheduleItemProps {
   show: Show;
   activeShowId?: number;
-  toggleScheduleDisplay: boolean;
   setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
 export default function ScheduleItem({
   show,
   activeShowId,
-  toggleScheduleDisplay,
   setActiveShowId,
 }: ScheduleItemProps) {
   const handleClick = () => {
     setActiveShowId(show.id);
   };
-  if (toggleScheduleDisplay) {
-    return (
-      <ShowCard
-        show={show}
-        activeShowId={activeShowId}
-        handleClick={handleClick}
-      />
-    );
-  }
 
   return (
     <div

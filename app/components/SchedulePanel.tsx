@@ -11,7 +11,6 @@ interface ScheduleListProps {
 
 export default function SchedulePanel({ shows }: ScheduleListProps) {
   const [activeShowId, setActiveShowId] = useState<number>();
-  const [toggleScheduleDisplay, setToggleScheduleDisplay] = useState(false);
 
   return (
     <div className="md:grid md:grid-cols-3">
@@ -20,16 +19,11 @@ export default function SchedulePanel({ shows }: ScheduleListProps) {
           shows={shows}
           setActiveShowId={setActiveShowId}
           activeShowId={activeShowId}
-          toggleScheduleDisplay={toggleScheduleDisplay}
         />
       </div>
       <div className="md:col-start-3">
         {activeShowId && (
-          <ShowDetail
-            show={shows.find((show) => show.id === activeShowId)}
-            toggleScheduleDisplay={toggleScheduleDisplay}
-            setToggleScheduleDisplay={setToggleScheduleDisplay}
-          />
+          <ShowDetail show={shows.find((show) => show.id === activeShowId)} />
         )}
       </div>
     </div>
