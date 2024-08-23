@@ -9,7 +9,7 @@ export default function ShowDetailPanel({ show }: ShowDetailPanelProps) {
   return (
     <div className="hidden md:flex">
       {show && (
-        <div className="overflow-y-auto border-l-2 border-black bg-white">
+        <div className="fixed border-l-2 border-black bg-white">
           <ShowDetail show={show} />
         </div>
       )}

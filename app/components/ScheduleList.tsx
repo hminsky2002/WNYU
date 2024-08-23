@@ -48,7 +48,7 @@ export default function ScheduleList({
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div className={`max-h-[800px] overflow-y-auto`}>
+      <div className={`max-h-[800px]`}>
         {filteredShows.map((show) => (
           <ScheduleItem
             show={show}

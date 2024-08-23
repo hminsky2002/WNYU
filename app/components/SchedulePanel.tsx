@@ -13,8 +13,8 @@ export default function SchedulePanel({ shows }: ScheduleListProps) {
   const [activeShowId, setActiveShowId] = useState<number>();
 
   return (
-    <div className="md:grid md:grid-cols-3">
-      <div className="md:col-span-2">
+    <div className="h-[calc(100vh-24*4px)] md:grid md:grid-cols-3">
+      <div className="md:col-span-2 md:overflow-y-auto">
         <ScheduleList
           shows={shows}
           setActiveShowId={setActiveShowId}
