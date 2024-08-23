@@ -18,13 +18,15 @@ export default async function About() {
   });
   return (
     <>
-      <div className="px-7">
-        {aboutText?.content ? (
-          <div className="prose mr-auto w-5/6 pb-4 pt-10 leading-5">
+      <div className="px-7 md:flex md:justify-between">
+        <div className="pr-1/4 prose mr-auto pb-4 pt-10 leading-5 md:w-1/2">
+          {aboutText?.content ? (
             <PortableText value={aboutText.content} />
-          </div>
-        ) : null}
-        {cards ? <ManagementCardList cards={cards} /> : null}
+          ) : null}
+        </div>
+        <div className="w-1/2">
+          {cards ? <ManagementCardList cards={cards} /> : null}
+        </div>
       </div>
     </>
   );
