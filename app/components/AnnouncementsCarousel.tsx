@@ -15,7 +15,7 @@ export function AnnouncementsCarousel({
     <Swiper
       spaceBetween={1}
       slidesPerView={1}
-      className="h-[200px] w-[400px] border-4 border-black md:h-full md:w-full"
+      className="h-[200px] border-4 border-black md:h-full md:w-full"
     >
       {announcements.map((announcement) => (
         <SwiperSlide key={announcement.subtitle} className="relative">
