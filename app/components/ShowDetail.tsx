@@ -8,7 +8,7 @@ interface ShowDetailProps {
 
 export default function ShowDetail({ show }: ShowDetailProps) {
   return (
-    <div className="mx-10 h-[800px] overflow-y-auto">
+    <div className="overflow-y-auto pb-4 pt-4 md:h-[calc(100vh-24*4px)] md:px-10">
       <div>
         <Image
           src={show.image}
@@ -17,7 +17,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           alt="show image"
           className="border-2 border-black object-cover"
         />
-        <div className="text-4xl font-extrabold">{show.title}</div>
+        <div className="pt-2 text-4xl font-extrabold">{show.title}</div>
         <div className="text-lg">
           hosted by: {show.personas?.[0].name ?? 'unhosted'}
         </div>

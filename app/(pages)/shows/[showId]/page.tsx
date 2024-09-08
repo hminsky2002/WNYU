@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { trimSpinitronDescriptionString } from '@/app/utils';
-import type { Persona, PlaylistsResponse, Show } from '@wnyu/spinitron-sdk';
+import ShowDetail from '@/app/components/ShowDetail';
+import type { PlaylistsResponse, Show } from '@wnyu/spinitron-sdk';
 
 export default async function Page({ params }: { params: { showId: string } }) {
   const show = (await fetch(
@@ -10,12 +9,6 @@ export default async function Page({ params }: { params: { showId: string } }) {
       cache: 'force-cache',
     },
   ).then((res) => res.json())) as Show;
-  const persona: Persona = (await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/personas/${show.personas?.[0].id}?expand=personas`,
-    {
-      cache: 'force-cache',
-    },
-  ).then((res) => res.json())) as Persona;
   const playlists: PlaylistsResponse = (await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/playlists?show_id=${params.showId}`,
     {
@@ -26,22 +19,7 @@ export default async function Page({ params }: { params: { showId: string } }) {
     <>
       <div className="mx-auto max-w-[800px]">
         <div className="mx-auto max-w-[85%]">
-          <Image
-            src={show.image || ''}
-            alt={` cover image`}
-            priority
-            width={500}
-            height={400}
-          />
-          <div className="text-4xl font-extrabold">{show.title}</div>
-          <div className="text-xl">{`hosted by ${persona.name}`}</div>
-          <div className="text-xl">
-            {new Date(show.start).toLocaleTimeString()} {' - '}
-            {new Date(show.end).toLocaleTimeString()}
-          </div>
-          <div className="mt-4 text-lg">
-            {trimSpinitronDescriptionString(show.description)}
-          </div>
+          <ShowDetail show={show} />
         </div>
         <div className="mt-4 grid grid-cols-2 gap-4">
           {playlists.items &&
