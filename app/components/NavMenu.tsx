@@ -27,7 +27,7 @@ export default function NavMenu() {
             toggleMenu ? 'translate-y-0' : '-translate-y-full'
           } flex items-start justify-start md:-translate-y-full`}
         >
-          <div className="ml-8 flex flex-col space-y-4 text-3xl font-bold text-white">
+          <div className="my-7 ml-7 flex flex-col space-y-7 text-3xl font-bold text-white">
             <Link href="/home" onClick={handleClick}>
               home
             </Link>
