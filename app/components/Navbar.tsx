@@ -54,7 +54,7 @@ export default function Navbar({
                 <div className="marquee__item">
                   <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
                   <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj}{' '}
+                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
                     Current Song: {metadata?.song_name}
                   </span>
                 </div>
@@ -63,7 +63,7 @@ export default function Navbar({
                 <div className="marquee__item">
                   <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
                   <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj}{' '}
+                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
                     Current Song: {metadata?.song_name}
                   </span>
                 </div>

@@ -15,7 +15,7 @@ export default async function Home() {
         <div className="h-[200px] md:col-span-2 md:row-span-5 md:ml-8 md:h-auto">
           <AnnouncementsCarousel announcements={announcements} />
         </div>
-        <div className="sticky md:col-span-1 md:row-span-6">
+        <div className="sticky md:col-span-1 md:row-span-6 md:mb-4">
           <CurrentShowPanel />
         </div>
       </div>
