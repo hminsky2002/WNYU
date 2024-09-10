@@ -24,14 +24,11 @@ export default async function Page({ params }: { params: { showId: string } }) {
         <div className="mt-4 grid grid-cols-2 gap-4">
           {playlists.items &&
             playlists.items.map((playlist) => (
-              <div
-                className="mx-auto w-[175px] cursor-pointer border-4 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50"
-                key={playlist.id}
-              >
-                <Link href={`/playlists/${playlist.id}`}>
+              <Link href={`/playlists/${playlist.id}`} key={playlist.id}>
+                <div className="mx-auto w-[175px] cursor-pointer border-4 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50">
                   {new Date(playlist.start).toDateString()}
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
         </div>
       </div>
