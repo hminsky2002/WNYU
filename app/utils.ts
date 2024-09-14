@@ -1,5 +1,10 @@
 function trimSpinitronDescriptionString(s: string) {
-  return s.slice(3, -4);
+  try {
+    const val = s.slice(3, -4);
+    return val;
+  } catch (err) {
+    return '';
+  }
 }
 
 export { trimSpinitronDescriptionString };
