@@ -15,7 +15,7 @@ export default function CurrentPlaylistSpinsList({
       {spins
         ? spins.map((spin) => (
             <div className="border-w mx-2 flex gap-2 border-b" key={spin.id}>
-              <div className="w-1/4">
+              <div className="w-1/4 flex-shrink-0">
                 {new Date(spin.start).toLocaleTimeString()}
               </div>
 

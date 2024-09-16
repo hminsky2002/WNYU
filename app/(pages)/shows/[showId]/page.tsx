@@ -17,15 +17,15 @@ export default async function Page({ params }: { params: { showId: string } }) {
   ).then((res) => res.json())) as PlaylistsResponse;
   return (
     <>
-      <div className="mx-auto max-w-[800px]">
-        <div className="mx-auto max-w-[85%]">
+      <div className="mx-auto max-w-[85%]">
+        <div className="mx-auto">
           <ShowDetail show={show} />
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="my-6 grid grid-cols-2 gap-4">
           {playlists.items &&
             playlists.items.map((playlist) => (
               <div
-                className="mx-auto w-[175px] cursor-pointer border-4 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50"
+                className="mx-auto w-full cursor-pointer border-2 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50"
                 key={playlist.id}
               >
                 <Link href={`/playlists/${playlist.id}`}>
