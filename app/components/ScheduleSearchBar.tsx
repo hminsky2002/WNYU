@@ -53,7 +53,7 @@ export default function ScheduleSearchBar({
         </div>
         <ChevronRightIcon className="size-12" onClick={handleNextDay} />
       </div>
-      <div className="hidden overflow-x-scroll md:flex">
+      <div className="hidden overflow-x-scroll bg-white md:flex">
         <div className="flex">
           <MagnifyingGlassIcon className="size-6" />
           <input
