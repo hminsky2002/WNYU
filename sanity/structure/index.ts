@@ -1,5 +1,10 @@
 import type { StructureResolver } from 'sanity/structure';
-import { DocumentTextIcon, UsersIcon, EyeOpenIcon } from '@sanity/icons';
+import {
+  DocumentTextIcon,
+  UsersIcon,
+  EyeOpenIcon,
+  DocumentVideoIcon,
+} from '@sanity/icons';
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -15,4 +20,7 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('announcement')
         .title('Announcement')
         .icon(EyeOpenIcon),
+      S.documentTypeListItem('videoCard')
+        .title('Video Card')
+        .icon(DocumentVideoIcon),
     ]);

@@ -74,6 +74,16 @@ export type Slug = {
   source?: string;
 };
 
+export type VideoCard = {
+  _id: string;
+  _type: 'videoCard';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  videoLink?: string;
+};
+
 export type Announcement = {
   _id: string;
   _type: 'announcement';
@@ -208,6 +218,7 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Slug
+  | VideoCard
   | Announcement
   | ManagementCard
   | SanityImageCrop
@@ -312,3 +323,29 @@ export type ANNOUNCEMENT_QUERYResult = {
     _type: 'image';
   } | null;
 } | null;
+// Variable: VIDEO_CARDS_QUERY
+// Query: *[_type=="videoCard"]|order(_createdAt desc){name,videoLink}
+export type VIDEO_CARDS_QUERYResult = Array<{
+  name: string | null;
+  videoLink: string | null;
+}>;
+// Variable: VIDEO_CARD_QUERY
+// Query: *[_type=="videoCard"][0]{name,videoLink}
+export type VIDEO_CARD_QUERYResult = {
+  name: string | null;
+  videoLink: string | null;
+} | null;
+
+// Query TypeMap
+import '@sanity/client';
+declare module '@sanity/client' {
+  interface SanityQueries {
+    '*[_type=="managementCard"]{\'id\':_id,name,role,email,picture}': MANAGEMENT_CARDS_QUERYResult;
+    '*[_type=="managementCard"][0]{\'id\':_id,name,role,email,picture}': MANAGEMENT_CARD_QUERYResult;
+    '*[_type=="textBlock" && name=="About"][0]{content}': ABOUT_TEXT_QUERYResult;
+    '*[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}': ANNOUNCEMENTS_QUERYResult;
+    '*[_type=="announcement"][0]{title,subtitle,announcementImage}': ANNOUNCEMENT_QUERYResult;
+    '*[_type=="videoCard"]|order(_createdAt desc){name,videoLink}': VIDEO_CARDS_QUERYResult;
+    '*[_type=="videoCard"][0]{name,videoLink}': VIDEO_CARD_QUERYResult;
+  }
+}
