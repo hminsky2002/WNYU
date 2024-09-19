@@ -6,7 +6,7 @@ import { urlFor } from '@/sanity/lib/image';
 import type { ANNOUNCEMENTS_QUERYResult } from '../../sanity.types';
 import 'swiper/css';
 
-export function AnnouncementsCarousel({
+export default function AnnouncementsCarousel({
   announcements,
 }: {
   announcements: ANNOUNCEMENTS_QUERYResult;
@@ -15,7 +15,7 @@ export function AnnouncementsCarousel({
     <Swiper
       spaceBetween={1}
       slidesPerView={1}
-      className="h-[200px] border-4 border-black md:h-full md:w-full"
+      className="h-full w-full border-4 border-black"
     >
       {announcements.map((announcement) => (
         <SwiperSlide key={announcement.subtitle} className="relative">

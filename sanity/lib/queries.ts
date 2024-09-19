@@ -9,3 +9,7 @@ export const ABOUT_TEXT_QUERY = groq`*[_type=="textBlock" && name=="About"][0]{c
 export const ANNOUNCEMENTS_QUERY = groq`*[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}`;
 
 export const ANNOUNCEMENT_QUERY = groq`*[_type=="announcement"][0]{title,subtitle,announcementImage}`;
+
+export const VIDEO_CARDS_QUERY = groq`*[_type=="videoCard"]|order(_createdAt desc){name,videoLink}`;
+
+export const VIDEO_CARD_QUERY = groq`*[_type=="videoCard"][0]{name,videoLink}`;

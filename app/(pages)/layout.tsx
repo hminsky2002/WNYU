@@ -8,7 +8,7 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="min-h-screen">
       <CurrentDataProvider>
         <DropdownToggleProvider>
           <Navbar>
