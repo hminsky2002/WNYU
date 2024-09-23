@@ -12,7 +12,7 @@ export default async function ShowDetailPanel({
   playlists,
 }: ShowDetailPanelProps) {
   return (
-    <div className="flex h-screen flex-col md:overflow-scroll">
+    <div className="flex h-screen flex-col md:overflow-y-scroll pb-24">
       <div className="bg-white">
         <ShowDetail show={show} />
       </div>
@@ -20,7 +20,7 @@ export default async function ShowDetailPanel({
         {playlists &&
           playlists.map((playlist) => (
             <Link href={`/playlists/${playlist.id}`} key={playlist.id}>
-              <div className="mx-auto w-[175px] cursor-pointer border-4 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50">
+              <div className="mx-auto w-[10rem] cursor-pointer border-4 border-black p-4 text-center text-sm font-bold transition-all hover:opacity-50">
                 {new Date(playlist.start).toDateString()}
               </div>
             </Link>

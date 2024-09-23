@@ -15,7 +15,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           width={500}
           height={200}
           alt="show image"
-          className="h-[300px] w-[500px] border-2 border-black object-cover"
+          className="h-[300px] w-full border-2 border-black object-cover"
         />
         <div className="pt-2 text-4xl font-extrabold">{show.title}</div>
         <div className="text-lg">

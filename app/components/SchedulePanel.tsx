@@ -17,7 +17,7 @@ export default function SchedulePanel({
     <>
       <div className="mt-16 flex h-screen flex-col md:hidden">
         {!activeShow && (
-          <div className="h-full w-full">
+          <div className="h-full w-full pt-4">
             <ScheduleList shows={shows} />
           </div>
         )}
@@ -29,12 +29,12 @@ export default function SchedulePanel({
         )}
       </div>
       <div className="mt-16 hidden h-screen flex-row md:flex">
-        <div className="h-full w-2/3 border-r-2 border-black">
+        <div className="h-full w-2/3">
           <ScheduleList shows={shows} />
         </div>
 
         {activeShow && (
-          <div className="sticky top-0 block h-full w-1/3 overflow-y-auto">
+          <div className="fixed right-0 top-20 h-screen w-1/3">
             <ShowDetailPanel show={activeShow} playlists={playlists} />
           </div>
         )}

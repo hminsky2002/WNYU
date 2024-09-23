@@ -41,7 +41,7 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div className={`max-h-[800px]`}>
+      <div>
         {filteredShows.map((show) => (
           <ScheduleItem show={show} key={show.id} />
         ))}

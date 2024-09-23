@@ -28,7 +28,7 @@ export default async function Page({
   ).then((res) => res.json())) as Persona;
 
   return (
-    <div className="md:grid md:grid-cols-6">
+    <div className="mt-20 md:grid md:grid-cols-6">
       <div className="md:col-span-3">
         <div className="mx-auto px-8 md:fixed md:m-8 md:w-[50%]">
           <div className="flex gap-x-2">
