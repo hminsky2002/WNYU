@@ -4,19 +4,12 @@ import { useState, useEffect } from 'react';
 import ScheduleItem from './ScheduleItem';
 import ScheduleSearchBar, { daysOfWeek } from './ScheduleSearchBar';
 import type { Show } from '@wnyu/spinitron-sdk';
-import type { Dispatch, SetStateAction } from 'react';
 
 interface ScheduleListProps {
   shows: Show[];
-  activeShowId?: number;
-  setActiveShowId: Dispatch<SetStateAction<number | undefined>>;
 }
 
-export default function ScheduleList({
-  shows,
-  activeShowId,
-  setActiveShowId,
-}: ScheduleListProps) {
+export default function ScheduleList({ shows }: ScheduleListProps) {
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
   const [dayFilter, setDayFilter] = useState<string>(
     daysOfWeek[new Date().getDay()],
@@ -48,14 +41,9 @@ export default function ScheduleList({
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div className={`max-h-[800px]`}>
+      <div>
         {filteredShows.map((show) => (
-          <ScheduleItem
-            show={show}
-            key={show.id}
-            setActiveShowId={setActiveShowId}
-            activeShowId={activeShowId}
-          />
+          <ScheduleItem show={show} key={show.id} />
         ))}
       </div>
     </div>

@@ -1,31 +1,44 @@
-'use client';
-
-import { useState } from 'react';
 import ScheduleList from './ScheduleList';
-import ShowDetail from './ShowDetailPanel';
-import type { Show } from '@wnyu/spinitron-sdk';
+import ShowDetailPanel from './ShowDetailPanel';
+import type { Playlist, Show } from '@wnyu/spinitron-sdk';
 
-interface ScheduleListProps {
+interface SchedulePanelProps {
   shows: Show[];
+  playlists?: Playlist[];
+  activeShow?: Show;
 }
 
-export default function SchedulePanel({ shows }: ScheduleListProps) {
-  const [activeShowId, setActiveShowId] = useState<number>();
-
+export default function SchedulePanel({
+  shows,
+  playlists,
+  activeShow,
+}: SchedulePanelProps) {
   return (
-    <div className="h-[calc(100vh-24*4px)] md:grid md:grid-cols-3">
-      <div className="md:col-span-2 md:overflow-y-auto">
-        <ScheduleList
-          shows={shows}
-          setActiveShowId={setActiveShowId}
-          activeShowId={activeShowId}
-        />
-      </div>
-      <div className="md:col-start-3">
-        {activeShowId && (
-          <ShowDetail show={shows.find((show) => show.id === activeShowId)} />
+    <>
+      <div className="mt-16 flex h-screen flex-col md:hidden">
+        {!activeShow && (
+          <div className="h-full w-full pt-4">
+            <ScheduleList shows={shows} />
+          </div>
+        )}
+
+        {activeShow && (
+          <div className="h-full">
+            <ShowDetailPanel show={activeShow} playlists={playlists} />
+          </div>
         )}
       </div>
-    </div>
+      <div className="mt-16 hidden h-screen flex-row md:flex">
+        <div className="h-full w-2/3">
+          <ScheduleList shows={shows} />
+        </div>
+
+        {activeShow && (
+          <div className="fixed right-0 top-20 h-screen w-1/3">
+            <ShowDetailPanel show={activeShow} playlists={playlists} />
+          </div>
+        )}
+      </div>
+    </>
   );
 }

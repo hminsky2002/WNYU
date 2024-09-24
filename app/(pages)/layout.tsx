@@ -12,7 +12,7 @@ export default function AppLayout({
       <CurrentDataProvider>
         <DropdownToggleProvider>
           <Navbar>
-            <main className="pt-20">{children}</main>
+            <main>{children}</main>
           </Navbar>
         </DropdownToggleProvider>
       </CurrentDataProvider>
