@@ -17,7 +17,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           alt="show image"
           className="h-[300px] w-full border-2 border-black object-cover"
         />
-        <div className="pt-2 text-4xl font-extrabold">{show.title}</div>
+        <div className="pt-4 text-4xl font-extrabold">{show.title}</div>
         <div className="text-lg">
           hosted by: {show.personas?.[0].name ?? 'unhosted'}
         </div>
