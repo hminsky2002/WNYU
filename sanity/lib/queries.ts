@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-enum ARTICLE_TYPES {
+export enum ARTICLE_TYPES {
   MUSIC = 'music',
   SPORTS = 'sports',
   NEWS = 'news',
@@ -63,6 +63,19 @@ export const ARTICLES_BY_TYPE_QUERY = (type: ARTICLE_TYPES) => groq`
 
 export const ARTICLE_BY_TYPE_QUERY = (type: ARTICLE_TYPES) => groq`
   *[_type == "article" && articleType == "${type}"][0]{
+    'id': _id,
+    name,
+    slug,
+    author,
+    date,
+    picture,
+    content,
+    articleType
+  }
+`;
+
+export const ARTICLE_BY_SLUG_QUERY = (slug: string) => groq`
+  *[_type == "article" && slug.current == "${slug}"][0]{
     'id': _id,
     name,
     slug,
