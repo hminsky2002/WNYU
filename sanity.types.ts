@@ -68,6 +68,48 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Article = {
+  _id: string;
+  _type: 'article';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  author?: string;
+  date?: string;
+  picture?: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  };
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }>;
+  articleType?: 'music' | 'news' | 'sports';
+};
+
 export type Slug = {
   _type: 'slug';
   current?: string;
@@ -217,6 +259,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | Article
   | Slug
   | VideoCard
   | Announcement
@@ -335,6 +378,84 @@ export type VIDEO_CARD_QUERYResult = {
   name: string | null;
   videoLink: string | null;
 } | null;
+// Variable: ARTICLES_QUERY
+// Query: *[_type == "article"]  | order(_createdAt desc) {    'id': _id,    name,    slug,    author,    date,    picture,    content,    articleType  }
+export type ARTICLES_QUERYResult = Array<{
+  id: string;
+  name: string | null;
+  slug: Slug | null;
+  author: string | null;
+  date: string | null;
+  picture: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+  articleType: 'music' | 'news' | 'sports' | null;
+}>;
+// Variable: ARTICLE_QUERY
+// Query: *[_type == "article"][0]{    'id': _id,    name,    slug,    author,    date,    picture,    content,    articleType  }
+export type ARTICLE_QUERYResult = {
+  id: string;
+  name: string | null;
+  slug: Slug | null;
+  author: string | null;
+  date: string | null;
+  picture: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+  articleType: 'music' | 'news' | 'sports' | null;
+} | null;
 
 // Query TypeMap
 import '@sanity/client';
@@ -347,5 +468,7 @@ declare module '@sanity/client' {
     '*[_type=="announcement"][0]{title,subtitle,announcementImage}': ANNOUNCEMENT_QUERYResult;
     '*[_type=="videoCard"]|order(_createdAt desc){name,videoLink}': VIDEO_CARDS_QUERYResult;
     '*[_type=="videoCard"][0]{name,videoLink}': VIDEO_CARD_QUERYResult;
+    '\n  *[_type == "article"]\n  | order(_createdAt desc) {\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLES_QUERYResult;
+    '\n  *[_type == "article"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLE_QUERYResult;
   }
 }
