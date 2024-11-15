@@ -2,7 +2,7 @@
 
 import { SpinitronMetadata } from '@wnyu/spinitron-sdk';
 import { useState, useEffect, useContext } from 'react';
-import { useMetadata } from '@/app/api';
+import { useMetadata } from '@/app/client-api';
 import { DropdownToggleContext } from '../providers/ToggleProvider';
 import DropDownPanel from './DropDownPanel';
 import NavMenu from './NavMenu';

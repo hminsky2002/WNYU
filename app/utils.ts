@@ -1,3 +1,5 @@
+import type { ShowsResponse } from '@wnyu/spinitron-sdk';
+
 function trimSpinitronDescriptionString(s: string) {
   try {
     const val = s.slice(3, -4);
@@ -7,4 +9,8 @@ function trimSpinitronDescriptionString(s: string) {
   }
 }
 
-export { trimSpinitronDescriptionString };
+function filterShowByCategory(shows: ShowsResponse, category: string) {
+  return shows.items.filter((show) => show.category === category);
+}
+
+export { trimSpinitronDescriptionString, filterShowByCategory };
