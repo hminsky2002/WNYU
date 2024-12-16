@@ -31,7 +31,7 @@ export default function ScheduleSearchBar({
 }: ScheduleSearchBarProps) {
   const [dayOfWeek, setDayOfWeek] = useState(new Date().getDay());
   const inputRef = useRef<HTMLInputElement>(null);
-  let [searchOpen, setSearchOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const handlePreviousDay = () => {
     if (dayOfWeek === 0) {
       setDayOfWeek(6);
