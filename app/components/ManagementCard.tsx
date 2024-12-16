@@ -10,7 +10,7 @@ export function ManagementCard({
   const { name, role, email, picture } = card || {};
 
   return (
-    <div className="flex-shrink py-1 md:w-[200px]">
+    <div className="flex-shrink break-words py-1 md:w-[200px]">
       <a href={`mailto: ${email}`} target="_blank">
         {picture?.asset?._ref ? (
           <Image
@@ -22,7 +22,8 @@ export function ManagementCard({
           />
         ) : null}
         {name ? <p className="text-xl">{name}</p> : null}
-        {role ? <p className="text-wrap text-base">{role}</p> : null}
+        {role ? <p className="text-base">{role}</p> : null}
+        {email ? <p className="text-base">{email}</p> : null}
       </a>
     </div>
   );

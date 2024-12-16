@@ -47,7 +47,7 @@ export default function Navbar({
           <Stream />
           <div
             onClick={handleClick}
-            className="enable-animation flex cursor-pointer overflow-hidden text-xl font-bold"
+            className="enable-animation flex cursor-default overflow-hidden text-xl font-bold"
           >
             <div className="marquee transparent-border">
               <div className="marquee__content">

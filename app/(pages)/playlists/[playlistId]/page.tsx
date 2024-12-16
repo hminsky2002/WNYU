@@ -31,7 +31,7 @@ export default async function Page({
     <div className="mt-20 md:grid md:grid-cols-6">
       <div className="md:col-span-3">
         <div className="mx-auto px-8 md:fixed md:m-8 md:w-[50%]">
-          <div className="flex gap-x-2">
+          <div className="mb-2 flex gap-x-2">
             <Link href="/schedule" className="hidden md:block">
               <ChevronLeftIcon className="mr-6 size-6" />
             </Link>
@@ -43,7 +43,7 @@ export default async function Page({
             {playlist.title}
           </div>
           <div className="text-xl md:text-2xl">{`hosted by ${persona.name}`}</div>
-          <div className="text-xl md:text-2xl">
+          <div className="mb-2 text-xl md:text-2xl">
             {new Date(playlist.start).toLocaleTimeString()} {' - '}
             {new Date(playlist.end).toLocaleTimeString()}
           </div>

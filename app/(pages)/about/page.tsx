@@ -24,7 +24,7 @@ export default async function About() {
             <PortableText value={aboutText.content} />
           ) : null}
         </div>
-        <div className="md:w-1/2">
+        <div className="pt-5 md:w-1/2">
           {cards ? <ManagementCardList cards={cards} /> : null}
         </div>
       </div>
