@@ -10,20 +10,20 @@ export function ManagementCard({
   const { name, role, email, picture } = card || {};
 
   return (
-    <div className="flex-shrink break-words py-1 md:w-[200px]">
+    <div className="min-w-[150px] max-w-[45%] break-words py-1 md:max-w-[30%]">
       <a href={`mailto: ${email}`} target="_blank">
         {picture?.asset?._ref ? (
           <Image
             className="aspect-square outline outline-offset-[-3px] outline-black"
-            src={urlFor(picture?.asset?._ref).width(300).height(300).url()}
-            width={200}
-            height={200}
+            src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
+            width={400}
+            height={400}
             alt={name || ''}
           />
         ) : null}
         {name ? <p className="text-xl">{name}</p> : null}
         {role ? <p className="text-base">{role}</p> : null}
-        {email ? <p className="text-base">{email}</p> : null}
+        {email ? <p className="text-sm">{email}</p> : null}
       </a>
     </div>
   );
