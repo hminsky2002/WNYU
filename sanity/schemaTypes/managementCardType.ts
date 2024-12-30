@@ -18,6 +18,10 @@ export const managementCardType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'priority',
+      type: 'number',
+    }),
+    defineField({
       name: 'picture',
       type: 'image',
       options: {
