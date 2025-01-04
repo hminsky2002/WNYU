@@ -32,18 +32,18 @@ export default async function Page({ params }: { params: PlaylistParams }) {
       <div className="md:col-span-3">
         <div className="mx-auto px-8 md:fixed md:m-8 md:w-[50%]">
           <div className="mb-2 flex gap-x-2">
-            <Link href="/schedule" className="hidden md:block">
+            <Link href={`/schedule/${playlist.show_id}`} className="md:block">
               <ChevronLeftIcon className="mr-6 size-6" />
             </Link>
             <div className="text-xl font-bold md:font-medium">
               {new Date(playlist.start).toDateString()}
             </div>
           </div>
-          <div className="text-4xl font-extrabold md:pb-4 md:text-8xl">
+          <div className="text-6xl font-extrabold md:pb-4 md:text-8xl">
             {playlist.title}
           </div>
           <div className="text-xl md:text-2xl">{`hosted by ${persona.name}`}</div>
-          <div className="mb-2 text-xl md:text-2xl">
+          <div className="mb-2 text-xl font-thin md:text-2xl">
             {new Date(playlist.start).toLocaleTimeString()} {' - '}
             {new Date(playlist.end).toLocaleTimeString()}
           </div>
