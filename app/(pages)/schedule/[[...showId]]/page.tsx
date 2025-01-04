@@ -26,10 +26,14 @@ async function ScheduleProvider({ showId }: { showId: string | undefined }) {
   );
 }
 
-export default async function Page({ params }: { params: { showId: string } }) {
+type ScheduleParams = Promise<{ showId: string | undefined }>;
+
+export default async function Page({ params }: { params: ScheduleParams }) {
+  const { showId } = await params;
+
   return (
     <div className="mx-7 h-screen pt-4">
-      <ScheduleProvider showId={params.showId} />
+      <ScheduleProvider showId={showId} />
     </div>
   );
 }

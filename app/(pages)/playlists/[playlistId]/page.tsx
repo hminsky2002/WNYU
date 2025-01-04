@@ -3,19 +3,19 @@ import Link from 'next/link';
 import { trimSpinitronDescriptionString } from '@/app/utils';
 import type { Persona, Playlist, SpinsResponse } from '@wnyu/spinitron-sdk';
 
-export default async function Page({
-  params,
-}: {
-  params: { playlistId: string };
-}) {
+type PlaylistParams = Promise<{ playlistId: string }>;
+
+export default async function Page({ params }: { params: PlaylistParams }) {
+  const { playlistId } = await params;
+
   const playlist = (await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/playlists/${params.playlistId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/playlists/${playlistId}`,
     {
       cache: 'force-cache',
     },
   ).then((res) => res.json())) as Playlist;
   const spins: SpinsResponse = (await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/spins?playlist_id=${params.playlistId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/spins?playlist_id=${playlistId}`,
     {
       cache: 'force-cache',
     },
