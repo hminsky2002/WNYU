@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useEffect, useState } from 'react';
-import { useCurrent } from '@/app/api';
+import { useCurrent } from '@/app/client-api';
 import { CurrentData } from '../types';
 
 const CurrentDataContext = createContext<CurrentData>({});

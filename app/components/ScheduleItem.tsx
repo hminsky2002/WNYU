@@ -12,9 +12,9 @@ export default function ScheduleItem({ show }: ScheduleItemProps) {
         key={show.id}
       >
         <Link href={`/schedule/${show.id}`}>
-          <div className="text-4xl font-extrabold">{show.title}</div>
-          <div className="text-lg">hosted by {show.personas?.[0]?.name}</div>
-          <div className="text-lg">
+          <div className="text-6xl font-extrabold">{show.title}</div>
+          <div className="text-2xl">hosted by {show.personas?.[0]?.name}</div>
+          <div className="text-2xl font-thin">
             {new Date(show.start).toLocaleTimeString()} {' - '}
             {new Date(show.end).toLocaleTimeString()}
           </div>

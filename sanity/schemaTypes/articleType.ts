@@ -57,5 +57,9 @@ export const articleType = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'priority',
+      type: 'number',
+    }),
   ],
 });

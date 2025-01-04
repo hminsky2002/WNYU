@@ -22,7 +22,7 @@ export const VIDEO_CARD_QUERY = groq`*[_type=="videoCard"][0]{name,videoLink}`;
 
 export const ARTICLES_QUERY = groq`
   *[_type == "article"]
-  | order(_createdAt desc) {
+  | order(_createdAt desc) | order(priority asc){
     'id': _id,
     name,
     slug,
@@ -49,7 +49,7 @@ export const ARTICLE_QUERY = groq`
 
 export const ARTICLES_BY_TYPE_QUERY = (type: ARTICLE_TYPES) => groq`
   *[_type == "article" && articleType == "${type}"]
-  | order(_createdAt desc) {
+  | order(_createdAt desc) | order(priority asc) {
     'id': _id,
     name,
     slug,

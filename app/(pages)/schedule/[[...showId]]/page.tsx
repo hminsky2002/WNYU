@@ -1,26 +1,11 @@
+import { getShows } from '@/app/server-api';
 import SchedulePanel from '../../../components/SchedulePanel';
-import type { ShowsResponse, PlaylistsResponse } from '@wnyu/spinitron-sdk';
-
-async function getData(): Promise<ShowsResponse> {
-  const url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/shows`);
-  const params = new URLSearchParams({
-    expand: 'personas',
-  });
-  url.search = params.toString();
-  const res = await fetch(url.toString());
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch schedule');
-  }
-  const output = res.json() as Promise<ShowsResponse>;
-
-  return output;
-}
+import type { PlaylistsResponse } from '@wnyu/spinitron-sdk';
 
 async function ScheduleProvider({ showId }: { showId: string | undefined }) {
   let playlists;
   let activeShow;
-  const shows = await getData();
+  const shows = await getShows();
   if (showId) {
     playlists = (await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/playlists?show_id=${showId}`,

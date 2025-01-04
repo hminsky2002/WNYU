@@ -2,7 +2,7 @@
 
 import { Show } from '@wnyu/spinitron-sdk';
 import { useState, useEffect } from 'react';
-import { useUpcoming } from '@/app/api';
+import { useUpcoming } from '@/app/client-api';
 
 const REFRESH_UPCOMING_INTERVAL = 5 * 60 * 1000;
 

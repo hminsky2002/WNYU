@@ -108,6 +108,7 @@ export type Article = {
     _key: string;
   }>;
   articleType?: 'music' | 'news' | 'sports';
+  priority?: number;
 };
 
 export type Slug = {
@@ -156,6 +157,7 @@ export type ManagementCard = {
   name?: string;
   role?: string;
   email?: string;
+  priority?: number;
   picture?: {
     asset?: {
       _ref: string;
@@ -273,7 +275,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: MANAGEMENT_CARDS_QUERY
-// Query: *[_type=="managementCard"]{'id':_id,name,role,email,picture}
+// Query: *[_type=="managementCard"]|order(priority asc){'id':_id,name,role,email,picture}
 export type MANAGEMENT_CARDS_QUERYResult = Array<{
   id: string;
   name: string | null;
@@ -379,7 +381,7 @@ export type VIDEO_CARD_QUERYResult = {
   videoLink: string | null;
 } | null;
 // Variable: ARTICLES_QUERY
-// Query: *[_type == "article"]  | order(_createdAt desc) {    'id': _id,    name,    slug,    author,    date,    picture,    content,    articleType  }
+// Query: *[_type == "article"]  | order(_createdAt desc) | order(priority asc){    'id': _id,    name,    slug,    author,    date,    picture,    content,    articleType  }
 export type ARTICLES_QUERYResult = Array<{
   id: string;
   name: string | null;
@@ -461,14 +463,14 @@ export type ARTICLE_QUERYResult = {
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type=="managementCard"]{\'id\':_id,name,role,email,picture}': MANAGEMENT_CARDS_QUERYResult;
+    '*[_type=="managementCard"]|order(priority asc){\'id\':_id,name,role,email,picture}': MANAGEMENT_CARDS_QUERYResult;
     '*[_type=="managementCard"][0]{\'id\':_id,name,role,email,picture}': MANAGEMENT_CARD_QUERYResult;
     '*[_type=="textBlock" && name=="About"][0]{content}': ABOUT_TEXT_QUERYResult;
     '*[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}': ANNOUNCEMENTS_QUERYResult;
     '*[_type=="announcement"][0]{title,subtitle,announcementImage}': ANNOUNCEMENT_QUERYResult;
     '*[_type=="videoCard"]|order(_createdAt desc){name,videoLink}': VIDEO_CARDS_QUERYResult;
     '*[_type=="videoCard"][0]{name,videoLink}': VIDEO_CARD_QUERYResult;
-    '\n  *[_type == "article"]\n  | order(_createdAt desc) {\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLES_QUERYResult;
+    '\n  *[_type == "article"]\n  | order(_createdAt desc) | order(priority asc){\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLES_QUERYResult;
     '\n  *[_type == "article"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLE_QUERYResult;
   }
 }
