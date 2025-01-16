@@ -34,14 +34,14 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
   }, [dayFilter, nameFilter, shows]);
 
   return (
-    <div className="w-full">
+    <div className="">
       <ScheduleSearchBar
         dayFilter={dayFilter}
         nameFilter={nameFilter}
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div>
+      <div className="flex flex-col gap-4">
         {filteredShows.map((show) => (
           <ScheduleItem show={show} key={show.id} />
         ))}
