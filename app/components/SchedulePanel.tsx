@@ -15,7 +15,7 @@ export default function SchedulePanel({
 }: SchedulePanelProps) {
   return (
     <>
-      <div className="mt-16 flex h-screen flex-col md:hidden">
+      <div className="mx-4 mt-16 flex h-screen flex-col md:hidden">
         {!activeShow && (
           <div className="h-full w-full pt-4">
             <ScheduleList shows={shows} />
@@ -28,7 +28,7 @@ export default function SchedulePanel({
           </div>
         )}
       </div>
-      <div className="mt-16 hidden h-screen flex-row md:flex">
+      <div className="mx-4 mt-16 hidden h-screen flex-row md:flex">
         <div className="h-full w-2/3">
           <ScheduleList shows={shows} />
         </div>

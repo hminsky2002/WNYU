@@ -13,9 +13,9 @@ const ArticlesGroup = ({ articles }: { articles: ARTICLES_QUERYResult }) => {
           {otherDesktopArticles.map((article, index) => (
             <Link key={index} href={`/articles/${article.slug?.current}`}>
               <div className="article-item">
-                <h2 className="text-3xl font-bold">{article.name}</h2>
-                <p className="text-xl text-gray-500">by {article.author}</p>
-                <p className="text-xl font-thin text-gray-500">
+                <h2 className="text-6xl font-bold">{article.name}</h2>
+                <p className="text-2xl text-gray-500">by {article.author}</p>
+                <p className="text-2xl font-thin text-gray-500">
                   {article.date}
                 </p>
               </div>

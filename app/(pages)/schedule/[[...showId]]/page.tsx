@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: ScheduleParams }) {
   const { showId } = await params;
 
   return (
-    <div className="mx-7 h-screen pt-4">
+    <div className="h-screen pt-4">
       <ScheduleProvider showId={showId} />
     </div>
   );

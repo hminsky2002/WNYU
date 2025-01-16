@@ -8,7 +8,7 @@ export default function ScheduleItem({ show }: ScheduleItemProps) {
   return (
     <>
       <div
-        className={`mx-3 cursor-pointer p-5 ${show.id === 4 ? 'text-gray-400' : ''} transition-colors hover:text-gray-400`}
+        className={`cursor-pointer transition-colors hover:text-gray-400`}
         key={show.id}
       >
         <Link href={`/schedule/${show.id}`}>
