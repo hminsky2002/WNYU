@@ -7,7 +7,7 @@ import {
   AddDocumentIcon,
 } from '@sanity/icons';
 import { CiMusicNote1 } from 'react-icons/ci';
-import { MdOutlineSportsSoccer } from 'react-icons/md';
+import { MdOutlineSportsSoccer, MdOutlinePodcasts } from 'react-icons/md';
 import { IoNewspaperOutline } from 'react-icons/io5';
 
 export const structure: StructureResolver = (S) =>
@@ -27,6 +27,9 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('videoCard')
         .title('Video Card')
         .icon(DocumentVideoIcon),
+      S.documentTypeListItem('podcast')
+        .title('Podcast')
+        .icon(MdOutlinePodcasts),
       S.listItem()
         .title('Articles')
         .icon(AddDocumentIcon)

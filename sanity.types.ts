@@ -68,6 +68,48 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Podcast = {
+  _id: string;
+  _type: 'podcast';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  host?: string;
+  picture?: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  };
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }>;
+  department?: 'news' | 'sports';
+  spotifyEpisodeURLs?: Array<string>;
+};
+
 export type Article = {
   _id: string;
   _type: 'article';
@@ -261,6 +303,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | Podcast
   | Article
   | Slug
   | VideoCard
@@ -458,6 +501,84 @@ export type ARTICLE_QUERYResult = {
   }> | null;
   articleType: 'music' | 'news' | 'sports' | null;
 } | null;
+// Variable: PODCASTS_QUERY
+// Query: *[_type == "podcast"]| order(_createdAt desc){    'id': _id,    name,    slug,    host,    picture,    spotifyEpisodeURLs,    department,    description  }
+export type PODCASTS_QUERYResult = Array<{
+  id: string;
+  name: string | null;
+  slug: Slug | null;
+  host: string | null;
+  picture: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  spotifyEpisodeURLs: Array<string> | null;
+  department: 'news' | 'sports' | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+}>;
+// Variable: PODCAST_QUERY
+// Query: *[_type == "podcast"][0]{    'id': _id,    name,    slug,    host,    picture,    spotifyEpisodeURLs,    department,    description  }
+export type PODCAST_QUERYResult = {
+  id: string;
+  name: string | null;
+  slug: Slug | null;
+  host: string | null;
+  picture: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  spotifyEpisodeURLs: Array<string> | null;
+  department: 'news' | 'sports' | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+} | null;
 
 // Query TypeMap
 import '@sanity/client';
@@ -472,5 +593,7 @@ declare module '@sanity/client' {
     '*[_type=="videoCard"][0]{name,videoLink}': VIDEO_CARD_QUERYResult;
     '\n  *[_type == "article"]\n  | order(_createdAt desc) | order(priority asc){\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLES_QUERYResult;
     '\n  *[_type == "article"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLE_QUERYResult;
+    '\n  *[_type == "podcast"]| order(_createdAt desc){\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCASTS_QUERYResult;
+    '\n  *[_type == "podcast"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCAST_QUERYResult;
   }
 }

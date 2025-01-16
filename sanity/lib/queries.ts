@@ -6,6 +6,11 @@ export enum ARTICLE_TYPES {
   NEWS = 'news',
 }
 
+export enum PODCAST_DEPARTMENTS {
+  SPORTS = 'sports',
+  NEWS = 'news',
+}
+
 export const MANAGEMENT_CARDS_QUERY = groq`*[_type=="managementCard"]|order(priority asc){'id':_id,name,role,email,picture}`;
 
 export const MANAGEMENT_CARD_QUERY = groq`*[_type=="managementCard"][0]{'id':_id,name,role,email,picture}`;
@@ -84,5 +89,60 @@ export const ARTICLE_BY_SLUG_QUERY = (slug: string) => groq`
     picture,
     content,
     articleType
+  }
+`;
+
+export const PODCASTS_QUERY = groq`
+  *[_type == "podcast"]| order(_createdAt desc){
+    'id': _id,
+    name,
+    slug,
+    host,
+    picture,
+    spotifyEpisodeURLs,
+    department,
+    description
+  }
+`;
+
+export const PODCAST_QUERY = groq`
+  *[_type == "podcast"][0]{
+    'id': _id,
+    name,
+    slug,
+    host,
+    picture,
+    spotifyEpisodeURLs,
+    department,
+    description
+  }
+`;
+
+export const PODCASTS_BY_DEPARTMENT_QUERY = (
+  department: PODCAST_DEPARTMENTS,
+) => groq`
+  *[_type == "podcast" && department == "${department}"]
+  | order(_createdAt desc) {
+     'id': _id,
+    name,
+    slug,
+    host,
+    picture,
+    spotifyEpisodeURLs,
+    department,
+    description
+  }
+`;
+
+export const PODCAST_BY_SLUG_QUERY = (slug: string) => groq`
+  *[_type == "podcast" && slug.current == "${slug}"][0]{
+     'id': _id,
+    name,
+    slug,
+    host,
+    picture,
+    spotifyEpisodeURLs,
+    department,
+    description
   }
 `;
