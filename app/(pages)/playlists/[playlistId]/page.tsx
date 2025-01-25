@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: PlaylistParams }) {
     },
   ).then((res) => res.json())) as Playlist;
   const spins: SpinsResponse = (await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/spins?playlist_id=${playlistId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/spins?playlist_id=${playlistId}&count=100`,
     {
       cache: 'force-cache',
     },
