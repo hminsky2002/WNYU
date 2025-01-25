@@ -8,11 +8,11 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen">
+    <div className="h-[calc(100dvh-4rem)]">
       <CurrentDataProvider>
         <DropdownToggleProvider>
           <Navbar>
-            <main>{children}</main>
+            <main className="mt-[4.5rem] md:mt-16">{children}</main>
           </Navbar>
         </DropdownToggleProvider>
       </CurrentDataProvider>
