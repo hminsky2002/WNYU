@@ -38,9 +38,9 @@ export default function Navbar({
 
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-50 w-full justify-between bg-white">
+      <div className="fixed left-0 right-0 top-0 z-50 w-full justify-between border-b-2 border-black bg-white p-4 md:h-16">
         <div
-          className={`flex justify-between border-b-2 border-black p-4 transition-colors ease-in-out ${
+          className={`flex justify-between transition-colors ease-in-out ${
             context?.toggle ? 'bg-black text-white' : 'bg-white'
           } md:bg-white md:text-black`}
         >

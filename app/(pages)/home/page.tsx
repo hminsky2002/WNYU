@@ -18,9 +18,9 @@ export default async function Home() {
     tags: ['videoCard'],
   });
   return (
-    <div className="static h-screen pt-20">
+    <div className="static pt-4">
       <div className="mx-7 flex flex-col-reverse gap-8 md:flex-row md:gap-0">
-        <div className="flex flex-col gap-16 pb-10 md:mx-7 md:w-2/3">
+        <div className="mb-10 flex flex-col gap-16 md:mx-7 md:w-2/3">
           <div className="hidden h-[500px] w-full md:block">
             <AnnouncementsCarousel announcements={announcements} />
           </div>
@@ -38,7 +38,7 @@ export default async function Home() {
             })}
           </div>
         </div>
-        <div className="md:sticky md:top-20 md:h-screen md:w-1/3">
+        <div className="md:sticky md:top-20 md:h-[calc(100dvh-4rem)] md:w-1/3">
           <CurrentShowPanel />
         </div>
         <div className="h-[250px] w-full md:hidden">

@@ -41,7 +41,7 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
         setDayFilter={setDayFilter}
         setNameFilter={setNameFilter}
       />
-      <div className="flex flex-col gap-4">
+      <div className="mt-4 flex flex-col gap-4 md:w-2/3">
         {filteredShows.map((show) => (
           <ScheduleItem show={show} key={show.id} />
         ))}
