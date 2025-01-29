@@ -37,7 +37,7 @@ export default function NavMenu() {
             <Link href="/about" onClick={handleClick}>
               about
             </Link>
-            <Link href="/" onClick={handleClick}>
+            <Link href="/podcasts" onClick={handleClick}>
               podcasts
             </Link>
             <Link href="/sports" onClick={handleClick}>
@@ -54,7 +54,7 @@ export default function NavMenu() {
         <Link href="/home">HOME</Link>
         <Link href="/schedule">SCHEDULE</Link>
         <Link href="/about">ABOUT</Link>
-        <Link href="/">PODCASTS</Link>
+        <Link href="/podcasts">PODCASTS</Link>
         <Link href="/sports">SPORTS</Link>
       </div>
     </>
