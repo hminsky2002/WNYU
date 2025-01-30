@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PODCASTS_QUERYResult } from '@/sanity.types';
-import ScheduleItem from './ScheduleItem';
+import ListItem from './ListItem';
 import type { Show } from '@wnyu/spinitron-sdk';
 
 const ShowsSidePanel = ({
@@ -17,7 +17,14 @@ const ShowsSidePanel = ({
       </div>
       <div>
         {shows.map((show) => (
-          <ScheduleItem show={show} key={show.id} />
+          <ListItem
+            url={`/schedule/${show.id}`}
+            host={show.personas?.[0]?.name ?? 'unhosted'}
+            title={show.title}
+            start={new Date(show.start).toLocaleTimeString()}
+            end={new Date(show.end).toLocaleTimeString()}
+            key={show.id}
+          />
         ))}
       </div>
     </div>
