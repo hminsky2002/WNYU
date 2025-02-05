@@ -17,7 +17,7 @@
     "@sanity/vision": "^3.64.1",
     "@wnyu/spinitron-sdk": "^1.0.4",
     "next": "15.1.6",
-    "next-sanity": "^9.8.46",
+    "next-sanity": "^9.8.49",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
