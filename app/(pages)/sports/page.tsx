@@ -28,9 +28,9 @@ export default async function Page() {
 
   return (
     <div className="static h-screen">
-      <div className="container mx-auto px-4 pt-10">
+      <div className="container mx-auto px-4">
         <div className="hidden flex-col md:flex md:flex-row">
-          <div className="w-full pr-4 pt-20 md:w-2/3">
+          <div className="w-full pr-4 pt-4 md:w-2/3">
             <ArticlesGroup articles={sportsArticles} />
           </div>
 
@@ -39,7 +39,7 @@ export default async function Page() {
           </div>
         </div>
         <div className="flex flex-col gap-8 md:hidden">
-          <div className="w-full pr-4 pt-20 md:w-2/3">
+          <div className="w-full pr-4 pt-4 md:w-2/3">
             <ArticlesGroup articles={sportsArticles} />
           </div>
           <h1 className="text-center text-6xl font-extrabold">Programs</h1>
