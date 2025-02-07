@@ -15,6 +15,12 @@ export default function NavMenu() {
     context?.setToggle(false);
   };
 
+  const handleXMarkClick = (e: React.MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation();
+    setToggleMenu(false);
+    context?.setToggle(false);
+  };
+
   return (
     <>
       <div className="md:hidden">
@@ -47,8 +53,8 @@ export default function NavMenu() {
             </Link>
           </div>
           <XMarkIcon
-            className="absolute right-0 top-0 size-14 text-white"
-            onClick={handleClick}
+            className="z-100 absolute right-0 top-0 size-14 text-white"
+            onClick={handleXMarkClick}
           />
         </motion.div>
       </div>
