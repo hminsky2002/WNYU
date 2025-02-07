@@ -1,6 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
+import { motion } from 'framer-motion';
 import { DropdownToggleContext } from '../providers/ToggleProvider';
 import CurrentPlaylistPanel from './CurrentPlaylistPanel';
 
@@ -12,15 +13,16 @@ export default function DropDownPanel() {
   };
 
   return (
-    <div
+    <motion.div
       onClick={handleClick}
-      className={`fixed left-0 top-[50px] z-40 h-[calc(100vh)] w-full overflow-y-auto overflow-x-clip bg-black transition-transform duration-500 ${
-        context?.toggle ? 'translate-y-0' : '-translate-y-full'
-      } md:-translate-y-full`}
+      initial={{ y: '-100%' }}
+      animate={context?.toggle ? { y: 0 } : { y: '-100%' }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="fixed left-0 top-[50px] z-40 h-[calc(100vh)] w-full overflow-y-auto overflow-x-clip bg-black"
     >
       <div className="p-6">
         <CurrentPlaylistPanel dropdown={true} />
       </div>
-    </div>
+    </motion.div>
   );
 }
