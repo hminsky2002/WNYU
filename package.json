@@ -16,6 +16,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.64.1",
     "@wnyu/spinitron-sdk": "^1.0.4",
+    "framer-motion": "^12.4.1",
     "next": "15.1.6",
     "next-sanity": "^9.8.46",
     "react": "^18",

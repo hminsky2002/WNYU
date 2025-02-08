@@ -1,10 +1,12 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import type { ANNOUNCEMENTS_QUERYResult } from '../../sanity.types';
 import 'swiper/css';
+import 'swiper/css/autoplay';
 
 export default function AnnouncementsCarousel({
   announcements,
@@ -15,6 +17,11 @@ export default function AnnouncementsCarousel({
     <Swiper
       spaceBetween={1}
       slidesPerView={1}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay]}
       className="h-full w-full border-4 border-black"
     >
       {announcements.map((announcement) => (
@@ -25,7 +32,7 @@ export default function AnnouncementsCarousel({
               .height(300)
               .url()}
             fill
-            className={`object-cover`}
+            className="object-cover"
             alt={announcement.title || ''}
           />
           <div className="absolute bottom-0 h-1/3 w-full bg-black text-white md:h-1/5">
