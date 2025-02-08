@@ -27,8 +27,9 @@ export default async function Page() {
   const sportsShows = filterShowByCategory(shows, 'Sports');
 
   return (
-    <div className="static h-screen">
-      <div className="container mx-auto px-4 pt-10">
+    <div className="static h-[calc(100dvh-16rem)]">
+      <div className="container mx-auto">
+        {/* desktop */}
         <div className="hidden flex-col md:flex md:flex-row">
           <div className="w-full pr-4 pt-20 md:w-2/3">
             <ArticlesGroup articles={sportsArticles} />
@@ -38,11 +39,11 @@ export default async function Page() {
             <ShowsSidePanel shows={sportsShows} podcasts={sportsPodcasts} />
           </div>
         </div>
-        <div className="flex flex-col gap-8 md:hidden">
+        {/* mobile */}
+        <div className="mx-4 flex flex-col gap-8 md:hidden">
           <div className="w-full pr-4 pt-20 md:w-2/3">
             <ArticlesGroup articles={sportsArticles} />
           </div>
-          <h1 className="text-center text-6xl font-extrabold">Programs</h1>
           <div className="w-full pl-4 pt-4 md:w-1/3">
             <ShowsSidePanel shows={sportsShows} podcasts={sportsPodcasts} />
           </div>

@@ -63,7 +63,7 @@ export default function ScheduleSearchBar({
       </div>
 
       {/* desktop */}
-      <div className="hidden overflow-x-scroll bg-white md:flex">
+      <div className="hidden bg-white md:flex">
         <div className="flex py-1">
           <MagnifyingGlassIcon className="mr-2 size-8" onClick={onClick} />
           <div className="py-1">

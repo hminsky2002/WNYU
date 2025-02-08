@@ -7,6 +7,7 @@ const ArticlesGroup = ({ articles }: { articles: ARTICLES_QUERYResult }) => {
   const otherDesktopArticles = articles.slice(1);
   return (
     <>
+      {/* desktop */}
       <div className="hidden flex-col gap-20 md:flex">
         {headerDesktopArticle && <ArticleCard article={headerDesktopArticle} />}
         <div className="grid grid-cols-2">
@@ -23,6 +24,7 @@ const ArticlesGroup = ({ articles }: { articles: ARTICLES_QUERYResult }) => {
           ))}
         </div>
       </div>
+      {/* mobile */}
       <div className="flex flex-col gap-20 md:hidden">
         {articles.map((article, index) => (
           <ArticleCard article={article} key={index} />
