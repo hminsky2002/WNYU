@@ -38,10 +38,14 @@ export default function Navbar({
 
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-50 w-full justify-between border-b-2 border-black bg-white p-4 md:h-16">
+      <div
+        className={`fixed left-0 right-0 top-0 z-50 w-full justify-between border-b-2 border-black ${
+          context?.toggle ? 'bg-black' : 'bg-white'
+        } p-4 transition-all delay-150 md:h-16 md:bg-white`}
+      >
         <div
           className={`flex justify-between transition-colors ease-in-out ${
-            context?.toggle ? 'bg-black text-white' : 'bg-white'
+            context?.toggle ? 'text-white' : ''
           } md:bg-white md:text-black`}
         >
           <Stream />
