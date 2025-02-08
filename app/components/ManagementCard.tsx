@@ -15,7 +15,10 @@ export function ManagementCard({
         {picture?.asset?._ref ? (
           <Image
             className="aspect-square outline outline-offset-[-3px] outline-black"
-            src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
+            src={
+              urlFor(picture?.asset?._ref).width(400).height(400).url() ??
+              '/public/placeholder.png'
+            }
             width={400}
             height={400}
             alt={name || ''}

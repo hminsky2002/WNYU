@@ -14,7 +14,10 @@ export default function Podcast({ podcast }: { podcast: PODCAST_QUERYResult }) {
           <div className="mb-4 flex flex-col gap-4">
             <Image
               className="h-1/2 w-full object-cover drop-shadow-2xl"
-              src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
+              src={
+                urlFor(picture?.asset?._ref).width(400).height(400).url() ??
+                '/public/placeholder.png'
+              }
               width={400}
               height={400}
               alt={name || ''}

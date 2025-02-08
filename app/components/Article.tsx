@@ -33,7 +33,10 @@ export function Article({ article }: { article: ARTICLE_QUERYResult }) {
         <div className="w-full">
           <Image
             className="h-auto w-full object-cover"
-            src={urlFor(picture?.asset?._ref).width(800).height(400).url()}
+            src={
+              urlFor(picture?.asset?._ref).width(800).height(400).url() ??
+              '/public/placeholder.png'
+            }
             width={800}
             height={400}
             alt={name || ''}
