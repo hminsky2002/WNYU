@@ -2,6 +2,7 @@
 
 import { Playlist, SpinitronMetadata } from '@wnyu/spinitron-sdk';
 import Image from 'next/image';
+import Link from 'next/link';
 import { trimSpinitronDescriptionString } from '../utils';
 
 interface CurrentPlaylistInfoProps {
@@ -52,7 +53,11 @@ export default function CurrentPlaylistInfo({
           <div className="w-full text-left leading-8">
             <p>NOW PLAYING:</p>
             <div className="text-4xl font-extrabold">
-              {metadata?.playlist_title ?? 'WNYU JUKEBOX'}
+              <Link
+                href={metadata?.show_id ? `/schedule/${metadata.show_id}` : `/`}
+              >
+                {metadata?.playlist_title ?? 'WNYU JUKEBOX'}
+              </Link>
             </div>
             <div className="text-l font-light">
               {metadata?.dj ? `Hosted By: ${metadata.dj}` : 'unhosted'}
