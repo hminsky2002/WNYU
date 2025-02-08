@@ -17,7 +17,10 @@ export default function PodcastCard({
       <div className="group relative z-10 block h-[300px] w-[400px] border-2 border-black bg-gray-500 text-white md:hidden">
         {picture?.asset?._ref ? (
           <Image
-            src={urlFor(picture?.asset?._ref).width(400).height(300).url()}
+            src={
+              urlFor(picture?.asset?._ref).width(400).height(300).url() ??
+              '/public/placeholder.png'
+            }
             alt={`${name} cover image`}
             fill
             className={`object-cover transition-all ease-in-out group-hover:brightness-0`}

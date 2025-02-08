@@ -27,7 +27,10 @@ export default function AnnouncementsCarousel({
       {announcements.map((announcement) => (
         <SwiperSlide key={announcement.subtitle} className="relative">
           <Image
-            src={urlFor(announcement?.announcementImage?.asset?._ref || '')
+            src={urlFor(
+              announcement?.announcementImage?.asset?._ref ??
+                '/public/placeholder.png',
+            )
               .width(300)
               .height(300)
               .url()}
