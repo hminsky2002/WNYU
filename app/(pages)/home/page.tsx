@@ -18,7 +18,7 @@ export default async function Home() {
     tags: ['videoCard'],
   });
   return (
-    <div className="static pt-4">
+    <div className="static pt-7">
       <div className="mx-7 flex flex-col-reverse gap-8 md:flex-row md:gap-0">
         <div className="mb-10 flex flex-col gap-16 md:mx-7 md:w-2/3">
           <div className="hidden h-[500px] w-full md:block">

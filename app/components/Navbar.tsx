@@ -54,7 +54,7 @@ export default function Navbar({
             onClick={handleClick}
             className="enable-animation flex cursor-default overflow-hidden text-xl font-bold"
           >
-            <Marquee autoFill={true}>
+            <Marquee autoFill={true} gradient={true} gradientWidth={100}>
               <div className="flex items-center px-4">
                 <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
                 <span>
