@@ -1,6 +1,7 @@
 'use client';
 
 import { SpinitronMetadata } from '@wnyu/spinitron-sdk';
+import Marquee from 'react-fast-marquee';
 import { useState, useEffect, useContext } from 'react';
 import { useMetadata } from '@/app/client-api';
 import { DropdownToggleContext } from '../providers/ToggleProvider';
@@ -53,26 +54,14 @@ export default function Navbar({
             onClick={handleClick}
             className="enable-animation flex cursor-default overflow-hidden text-xl font-bold"
           >
-            <div className="marquee transparent-border">
-              <div className="marquee__content">
-                <div className="marquee__item">
-                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                  <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
-                    Current Song: {metadata?.song_name}
-                  </span>
-                </div>
+            <Marquee autoFill={true}>
+              <div className="flex items-center px-4">
+                <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
+                <span>
+                  Live Now: {metadata?.playlist_title} with {metadata?.dj}
+                </span>
               </div>
-              <div aria-hidden="true" className="marquee__content">
-                <div className="marquee__item">
-                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                  <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
-                    Current Song: {metadata?.song_name}
-                  </span>
-                </div>
-              </div>
-            </div>
+            </Marquee>
           </div>
           <NavMenu />
         </div>
