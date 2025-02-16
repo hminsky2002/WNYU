@@ -88,7 +88,7 @@ export default function ScheduleSearchBar({
           <div
             key={day}
             className={`cursor-pointer px-3 py-1 text-lg font-bold ${
-              dayFilter === day ? 'text-black' : 'text-gray-200'
+              dayFilter === day ? 'text-black' : 'text-gray-400'
             }`}
             onClick={() => {
               setDayFilter(day);
