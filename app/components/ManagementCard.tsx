@@ -11,18 +11,18 @@ export function ManagementCard({
 
   return (
     <div className="min-w-[150px] max-w-[45%] break-words py-1 md:max-w-[30%]">
+      {picture?.asset?._ref ? (
+        <Image
+          className="aspect-square outline outline-[3px] outline-offset-[-3px] outline-black"
+          src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
+          width={400}
+          height={400}
+          alt={name || ''}
+        />
+      ) : null}
+      {name ? <p className="text-xl">{name}</p> : null}
+      {role ? <p className="text-base">{role}</p> : null}
       <a href={`mailto: ${email}`} target="_blank">
-        {picture?.asset?._ref ? (
-          <Image
-            className="aspect-square outline outline-offset-[-3px] outline-black"
-            src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
-            width={400}
-            height={400}
-            alt={name || ''}
-          />
-        ) : null}
-        {name ? <p className="text-xl">{name}</p> : null}
-        {role ? <p className="text-base">{role}</p> : null}
         {email ? <p className="text-sm">{email}</p> : null}
       </a>
     </div>

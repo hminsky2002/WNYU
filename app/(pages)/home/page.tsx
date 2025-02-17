@@ -18,32 +18,28 @@ export default async function Home() {
     tags: ['videoCard'],
   });
   return (
-    <div className="static pt-4">
-      <div className="mx-7 flex flex-col-reverse gap-8 md:flex-row md:gap-0">
-        <div className="mb-10 flex flex-col gap-16 md:mx-7 md:w-2/3">
-          <div className="hidden h-[500px] w-full md:block">
-            <AnnouncementsCarousel announcements={announcements} />
-          </div>
-          <p className="text-center text-4xl font-bold">
-            the latest videos from wnyu
-          </p>
-          <div className="flex flex-col gap-8">
-            {videos.map((video) => {
-              if (video.videoLink !== null)
-                return (
-                  <VideoCard videoLink={video.videoLink} key={video.name} />
-                );
-
-              return undefined;
-            })}
-          </div>
-        </div>
-        <div className="md:sticky md:top-20 md:h-[calc(100dvh-4rem)] md:w-1/3">
-          <CurrentShowPanel />
-        </div>
-        <div className="h-[250px] w-full md:hidden">
+    <div className="container static flex flex-col-reverse gap-8 px-4 pt-4 md:mx-auto md:flex-row md:gap-0">
+      <div className="mb-10 flex flex-col gap-16 md:mx-7 md:w-2/3">
+        <div className="hidden h-[500px] md:block">
           <AnnouncementsCarousel announcements={announcements} />
         </div>
+        <p className="mt-6 text-center text-4xl font-bold md:mt-auto">
+          the latest videos from wnyu
+        </p>
+        <div className="flex flex-col gap-8">
+          {videos.map((video) => {
+            if (video.videoLink !== null)
+              return <VideoCard videoLink={video.videoLink} key={video.name} />;
+
+            return undefined;
+          })}
+        </div>
+      </div>
+      <div className="md:sticky md:top-20 md:h-[calc(100dvh-4rem)]">
+        <CurrentShowPanel />
+      </div>
+      <div className="h-[250px] w-full md:hidden">
+        <AnnouncementsCarousel announcements={announcements} />
       </div>
     </div>
   );

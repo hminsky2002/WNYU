@@ -12,7 +12,7 @@ const ShowsSidePanel = ({
 }) => (
   <div className="flex flex-col gap-4">
     <div className="flex h-1/2 flex-col gap-8">
-      <div className="mt-4 hidden text-8xl font-extrabold md:block">
+      <div className="mt-4 hidden text-6xl font-extrabold md:block">
         RADIO SHOWS
       </div>
       <div>
@@ -30,7 +30,7 @@ const ShowsSidePanel = ({
     </div>
     {podcasts && (
       <div className="flex h-1/2 flex-col gap-8 text-red-600">
-        <div className="mt-4 hidden text-8xl font-extrabold md:block">
+        <div className="mt-4 hidden text-6xl font-extrabold md:block">
           PODCASTS
         </div>
         <div>

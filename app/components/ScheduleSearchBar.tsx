@@ -65,7 +65,8 @@ export default function ScheduleSearchBar({
         <ChevronRightIcon className="h-8 w-8" onClick={handleNextDay} />
       </div>
 
-      <div className="hidden overflow-x-scroll bg-white md:flex">
+      {/* desktop */}
+      <div className="hidden bg-white md:flex">
         <div className="flex py-1">
           <MagnifyingGlassIcon className="mr-2 h-8 w-8" onClick={onClick} />
           <div className="py-1">
