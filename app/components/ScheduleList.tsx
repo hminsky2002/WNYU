@@ -15,7 +15,6 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
     daysOfWeek[new Date().getDay()],
   );
   const [nameFilter, setNameFilter] = useState<string>('');
-
   useEffect(() => {
     const filtered = shows
       .filter((show) => {
@@ -28,7 +27,7 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
         return nameFilter ? nameMatch : dayMatch && nameMatch;
       })
       .sort(
-        (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime(),
+        (a, b) => new Date(a.start).getHours() - new Date(b.start).getHours(),
       );
     setFilteredShows(filtered);
   }, [dayFilter, nameFilter, shows]);
