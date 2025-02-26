@@ -30,13 +30,13 @@ export default function SchedulePanel({
         )}
       </div>
       {/* desktop */}
-      <div className="hidden flex-row justify-around md:flex">
-        <div className="h-[calc(100dvh-4rem)] w-1/2 overflow-y-scroll p-4">
+      <div className="hidden flex-row justify-between md:flex">
+        <div className="h-[calc(100dvh-4rem)] w-3/5 overflow-y-scroll p-6">
           <ScheduleList shows={shows} />
         </div>
 
         {activeShow && (
-          <div className="w-1/2">
+          <div className="w-2/5 overflow-y-scroll">
             <ShowDetailPanel show={activeShow} playlists={playlists} />
           </div>
         )}

@@ -8,17 +8,15 @@ const ArticlesGroup = ({ articles }: { articles: ARTICLES_QUERYResult }) => {
   return (
     <>
       {/* desktop */}
-      <div className="hidden flex-col gap-20 md:flex">
+      <div className="hidden flex-col gap-20 p-6 md:flex">
         {headerDesktopArticle && <ArticleCard article={headerDesktopArticle} />}
         <div className="grid grid-cols-2">
           {otherDesktopArticles.map((article, index) => (
             <Link key={index} href={`/articles/${article.slug?.current}`}>
               <div className="article-item">
-                <h2 className="text-6xl font-bold">{article.name}</h2>
-                <p className="text-2xl text-gray-500">by {article.author}</p>
-                <p className="text-2xl font-thin text-gray-500">
-                  {article.date}
-                </p>
+                <h2 className="text-2xl font-bold">{article.name}</h2>
+                <p className="text-xl text-gray-500">by {article.author}</p>
+                <p className="text-l text-gray-500">{article.date}</p>
               </div>
             </Link>
           ))}

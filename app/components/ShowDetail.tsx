@@ -8,14 +8,14 @@ interface ShowDetailProps {
 
 export default function ShowDetail({ show }: ShowDetailProps) {
   return (
-    <div className="pt-4 md:px-10">
+    <div className="pb-6">
       <div>
         <Image
           src={show.image ?? '/public/placeholder.png'}
           width={500}
           height={200}
           alt="show image"
-          className="h-[300px] w-full border-2 border-black object-cover"
+          className="mt-1 h-[300px] w-full border-2 border-black object-cover"
         />
         <div className="pt-4 text-4xl font-extrabold">{show.title}</div>
         <div className="text-lg">

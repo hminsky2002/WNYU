@@ -13,7 +13,7 @@ export function ArticleCard({ article }: { article: ARTICLE_QUERYResult }) {
       <div className="cursor-pointer">
         {picture?.asset?._ref ? (
           <Image
-            className=""
+            className="border-2 border-black"
             src={
               urlFor(picture?.asset?._ref).width(600).height(300).url() ??
               '/public/placeholder.png'
@@ -23,10 +23,10 @@ export function ArticleCard({ article }: { article: ARTICLE_QUERYResult }) {
             alt={name ?? ''}
           />
         ) : null}
-        <div className="flex flex-col gap-2 py-2">
-          <h2 className="text-4xl font-bold md:text-6xl">{name}</h2>
-          <p className="text-2xl text-gray-500">by {author}</p>
-          <p className="text-2xl font-thin text-gray-500">{date}</p>
+        <div className="flex flex-col gap-2 pt-4">
+          <h2 className="text-xl font-bold md:text-6xl">{name}</h2>
+          <p className="text-xl text-gray-500">by {author}</p>
+          <p className="text-l text-gray-500">{date}</p>
         </div>
       </div>
     </Link>
