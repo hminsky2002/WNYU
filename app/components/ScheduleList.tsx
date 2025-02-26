@@ -46,8 +46,16 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
             url={`/schedule/${show.id}`}
             host={show.personas?.[0]?.name ?? 'unhosted'}
             title={show.title}
-            start={new Date(show.start).toLocaleTimeString()}
-            end={new Date(show.end).toLocaleTimeString()}
+            start={new Date(show.start).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            })}
+            end={new Date(show.end).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            })}
             key={show.id}
           />
         ))}
