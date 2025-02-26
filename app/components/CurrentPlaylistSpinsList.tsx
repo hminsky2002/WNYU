@@ -19,7 +19,7 @@ export default function CurrentPlaylistSpinsList({
                 {new Date(spin.start).toLocaleTimeString()}
               </div>
 
-              <div>
+              <div className="truncate">
                 {`${spin.song} - 
                   ${spin.artist}, 
                   ${spin.release}
