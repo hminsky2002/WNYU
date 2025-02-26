@@ -44,8 +44,17 @@ export default async function Page({ params }: { params: PlaylistParams }) {
           </div>
           <div className="text-xl md:text-2xl">{`hosted by ${persona.name}`}</div>
           <div className="mb-2 text-xl font-thin md:text-2xl">
-            {new Date(playlist.start).toLocaleTimeString()} {' - '}
-            {new Date(playlist.end).toLocaleTimeString()}
+            {new Date(playlist.start).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            })}{' '}
+            {' - '}
+            {new Date(playlist.end).toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            })}
           </div>
           <div className="hidden text-xl md:block">
             {trimSpinitronDescriptionString(playlist.description)}
