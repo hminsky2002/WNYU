@@ -22,7 +22,11 @@ export default async function ShowDetailPanel({
             <Link href={`/playlists/${playlist.id}`} key={playlist.id}>
               <div className="flex h-[100px] w-[10rem] cursor-pointer flex-col justify-around bg-black p-4 text-center text-sm font-bold text-white transition-all hover:opacity-50 lg:text-base">
                 {/* get rid of day of week? */}
-                {new Date(playlist.start).toDateString()}
+                {new Date(playlist.start).toLocaleString('en-US', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
               </div>
             </Link>
           ))}
