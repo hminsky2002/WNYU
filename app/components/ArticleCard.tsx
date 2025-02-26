@@ -14,10 +14,13 @@ export function ArticleCard({ article }: { article: ARTICLE_QUERYResult }) {
         {picture?.asset?._ref ? (
           <Image
             className=""
-            src={urlFor(picture?.asset?._ref).width(600).height(300).url()}
+            src={
+              urlFor(picture?.asset?._ref).width(600).height(300).url() ??
+              '/public/placeholder.png'
+            }
             width={600}
             height={300}
-            alt={name || ''}
+            alt={name ?? ''}
           />
         ) : null}
         <div className="flex flex-col gap-2 py-2">

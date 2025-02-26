@@ -1,6 +1,7 @@
 'use client';
 
 import { SpinitronMetadata } from '@wnyu/spinitron-sdk';
+import Marquee from 'react-fast-marquee';
 import { useState, useEffect, useContext } from 'react';
 import { useMetadata } from '@/app/client-api';
 import { DropdownToggleContext } from '../providers/ToggleProvider';
@@ -38,10 +39,14 @@ export default function Navbar({
 
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-50 w-full justify-between border-b-2 border-black bg-white p-4 md:h-16">
+      <div
+        className={`fixed left-0 right-0 top-0 z-50 w-full justify-between border-b-2 border-black ${
+          context?.toggle ? 'bg-black' : 'bg-white'
+        } p-4 transition-all delay-150 md:h-16 md:bg-white`}
+      >
         <div
           className={`flex justify-between transition-colors ease-in-out ${
-            context?.toggle ? 'bg-black text-white' : 'bg-white'
+            context?.toggle ? 'text-white' : ''
           } md:bg-white md:text-black`}
         >
           <Stream />
@@ -49,26 +54,14 @@ export default function Navbar({
             onClick={handleClick}
             className="enable-animation flex cursor-default overflow-hidden text-xl font-bold"
           >
-            <div className="marquee transparent-border">
-              <div className="marquee__content">
-                <div className="marquee__item">
-                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                  <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
-                    Current Song: {metadata?.song_name}
-                  </span>
-                </div>
+            <Marquee autoFill={true} gradient={true} gradientWidth={100}>
+              <div className="flex items-center px-4">
+                <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
+                <span>
+                  Live Now: {metadata?.playlist_title} with {metadata?.dj}
+                </span>
               </div>
-              <div aria-hidden="true" className="marquee__content">
-                <div className="marquee__item">
-                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                  <span>
-                    Live Now: {metadata?.playlist_title} - {metadata?.dj} -
-                    Current Song: {metadata?.song_name}
-                  </span>
-                </div>
-              </div>
-            </div>
+            </Marquee>
           </div>
           <NavMenu />
         </div>
