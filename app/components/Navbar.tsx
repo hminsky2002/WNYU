@@ -8,6 +8,7 @@ import { DropdownToggleContext } from '../providers/ToggleProvider';
 import DropDownPanel from './DropDownPanel';
 import NavMenu from './NavMenu';
 import Stream from './Stream';
+import Image from 'next/image';
 
 const REFRESH_STREAM_INTERVAL = 5000;
 
@@ -49,6 +50,7 @@ export default function Navbar({
             context?.toggle ? 'text-white' : ''
           } md:bg-white md:text-black`}
         >
+          <Image src='/public/wnyuLogo.png' width={100} height={100} alt='logo'/>
           <Stream />
           <div
             onClick={handleClick}
