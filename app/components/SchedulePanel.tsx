@@ -36,7 +36,7 @@ export default function SchedulePanel({
         </div>
 
         {activeShow && (
-          <div className="w-1/2">
+          <div className="w-1/2 border-l-2 border-black">
             <ShowDetailPanel show={activeShow} playlists={playlists} />
           </div>
         )}
