@@ -12,11 +12,11 @@ export default async function ShowDetailPanel({
   playlists,
 }: ShowDetailPanelProps) {
   return (
-    <div className="flex h-[calc(100dvh-4rem)] flex-col md:overflow-y-scroll">
+    <div className="flex h-[calc(100dvh-4rem)] flex-col p-6 md:overflow-y-scroll">
       <div className="bg-white">
         <ShowDetail show={show} />
       </div>
-      <div className="flex flex-wrap justify-around gap-4 px-10 pb-6 pt-6">
+      <div className="flex flex-wrap justify-between gap-6">
         {playlists &&
           playlists.map((playlist) => (
             <Link href={`/playlists/${playlist.id}`} key={playlist.id}>
