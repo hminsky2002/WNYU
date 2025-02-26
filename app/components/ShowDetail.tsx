@@ -22,8 +22,17 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           hosted by: {show.personas?.[0].name ?? 'unhosted'}
         </div>
         <div className="text-lg">
-          {new Date(show.start).toLocaleTimeString()} {' - '}
-          {new Date(show.end).toLocaleTimeString()}
+          {new Date(show.start).toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+          })}{' '}
+          {' - '}
+          {new Date(show.end).toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+          })}
         </div>
       </div>
       <div className="mt-4">
