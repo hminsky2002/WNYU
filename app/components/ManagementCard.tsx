@@ -13,7 +13,7 @@ export function ManagementCard({
     <div className="min-w-[150px] max-w-[45%] break-words py-1 md:max-w-[30%]">
       {picture?.asset?._ref ? (
         <Image
-          className="aspect-square outline outline-[3px] outline-offset-[-3px] outline-black"
+          className="aspect-square border-2 border-black"
           src={urlFor(picture?.asset?._ref).width(400).height(400).url()}
           width={400}
           height={400}

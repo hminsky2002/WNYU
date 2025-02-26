@@ -22,7 +22,7 @@ export default function AnnouncementsCarousel({
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
-      className="h-full w-full border-4 border-black"
+      className="h-full w-full border-2 border-black"
     >
       {announcements.map((announcement) => (
         <SwiperSlide key={announcement.subtitle} className="relative">
