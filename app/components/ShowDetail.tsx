@@ -23,6 +23,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
         </div>
         <div className="text-lg">
           {new Date(show.start).toLocaleTimeString('en-US', {
+            weekday: 'long',
             hour: 'numeric',
             minute: 'numeric',
             hour12: true,
