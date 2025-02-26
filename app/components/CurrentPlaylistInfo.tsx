@@ -22,7 +22,7 @@ export default function CurrentPlaylistInfo({
         <div className="text-left">
           {playlist?.image && (
             <Image
-              src={playlist.image ?? '/public/placeholder.png'}
+              src={playlist.image ?? '/placeholder.png'}
               width={400}
               height={400}
               alt={playlist.title || ''}
@@ -66,7 +66,7 @@ export default function CurrentPlaylistInfo({
           {playlist?.image && (
             <div className="group relative mt-4 h-full w-full bg-gray-500 text-white">
               <Image
-                src={metadata?.cover_art_url ?? '/public/placeholder.png'}
+                src={metadata?.cover_art_url ?? '/placeholder.png'}
                 alt={`${metadata?.song_name} cover image`}
                 width={400}
                 height={400}

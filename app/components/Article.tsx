@@ -35,7 +35,7 @@ export function Article({ article }: { article: ARTICLE_QUERYResult }) {
             className="h-auto w-full object-cover"
             src={
               urlFor(picture?.asset?._ref).width(800).height(400).url() ??
-              '/public/placeholder.png'
+              '/placeholder.png'
             }
             width={800}
             height={400}

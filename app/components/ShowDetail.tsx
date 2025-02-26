@@ -11,7 +11,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
     <div className="pt-4 md:px-10">
       <div>
         <Image
-          src={show.image ?? '/public/placeholder.png'}
+          src={show.image ?? '/placeholder.png'}
           width={500}
           height={200}
           alt="show image"

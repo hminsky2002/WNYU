@@ -16,7 +16,7 @@ export default function Podcast({ podcast }: { podcast: PODCAST_QUERYResult }) {
               className="h-1/2 w-full object-cover drop-shadow-2xl"
               src={
                 urlFor(picture?.asset?._ref).width(400).height(400).url() ??
-                '/public/placeholder.png'
+                '/placeholder.png'
               }
               width={400}
               height={400}

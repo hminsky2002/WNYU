@@ -19,7 +19,7 @@ export default function PodcastCard({
           <Image
             src={
               urlFor(picture?.asset?._ref).width(400).height(300).url() ??
-              '/public/placeholder.png'
+              '/placeholder.png'
             }
             alt={`${name} cover image`}
             fill

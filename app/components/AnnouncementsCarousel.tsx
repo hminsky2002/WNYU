@@ -29,7 +29,7 @@ export default function AnnouncementsCarousel({
           <Image
             src={urlFor(
               announcement?.announcementImage?.asset?._ref ??
-                '/public/placeholder.png',
+                '/placeholder.png',
             )
               .width(300)
               .height(300)

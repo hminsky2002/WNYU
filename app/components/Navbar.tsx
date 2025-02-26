@@ -50,7 +50,7 @@ export default function Navbar({
             context?.toggle ? 'text-white' : ''
           } md:bg-white md:text-black`}
         >
-          <Image src='/public/wnyuLogo.png' width={100} height={100} alt='logo'/>
+          <Image src='/wnyuLogo.png' width={100} height={100} alt='logo'/>
           <Stream />
           <div
             onClick={handleClick}
