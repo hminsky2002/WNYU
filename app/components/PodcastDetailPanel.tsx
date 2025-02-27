@@ -7,7 +7,7 @@ export default async function ShowDetailPanel({
   podcast: PODCAST_QUERYResult;
 }) {
   return (
-    <div className="flex h-[calc(100dvh-4rem)] flex-col md:overflow-y-scroll">
+    <div className="flex h-[calc(100dvh-4rem)] flex-col p-6 md:overflow-y-scroll">
       <Podcast podcast={podcast} />
     </div>
   );

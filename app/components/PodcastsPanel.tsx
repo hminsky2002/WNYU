@@ -13,6 +13,7 @@ export default function PodcastsPanel({
 }: PodcastsPanelProps) {
   return (
     <>
+      {/* mobile */}
       <div className="mx-4 flex flex-col md:hidden">
         {!activePodcast && (
           <div className="w-full pt-4">
@@ -26,13 +27,14 @@ export default function PodcastsPanel({
           </div>
         )}
       </div>
-      <div className="mx-4 hidden flex-row md:flex">
-        <div className="h-[calc(100dvh-4rem)] w-3/5 overflow-y-scroll pb-5 pt-4">
+      {/* desktop */}
+      <div className="hidden flex-row justify-between md:flex">
+        <div className="h-[calc(100dvh-4rem)] w-3/5 overflow-y-scroll p-6">
           <PodcastList podcasts={podcasts} />
         </div>
 
         {activePodcast && (
-          <div className="fixed right-0 w-2/5 border-l-2 border-black">
+          <div className="w-2/5 overflow-y-scroll">
             <PodcastsDetailPanel podcast={activePodcast} />
           </div>
         )}
