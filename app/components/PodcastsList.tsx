@@ -29,7 +29,10 @@ function PodcastsSearchBar({
       {/* mobile */}
       <div className="flex items-center justify-center space-x-2 bg-white pb-4 pt-2 align-text-top md:hidden">
         <div className="flex py-1">
-          <MagnifyingGlassIcon className="mr-2 size-8" onClick={onClick} />
+          <MagnifyingGlassIcon
+            className="mr-2 size-8 transition-all ease-in-out"
+            onClick={onClick}
+          />
           <div className="py-1">
             <input
               className={`rounded bg-slate-300 transition-all ease-in-out ${

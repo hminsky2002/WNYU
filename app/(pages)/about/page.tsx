@@ -18,7 +18,7 @@ export default async function About() {
   });
   return (
     <>
-      <div className="pb-4 pt-8 md:container md:mx-auto md:flex md:justify-between">
+      <div className="p-4 pt-8 md:container md:mx-auto md:flex md:justify-between">
         <div className="pr-1/4 prose mr-auto shrink-0 leading-5 md:w-1/2">
           {aboutText?.content ? (
             <PortableText value={aboutText.content} />

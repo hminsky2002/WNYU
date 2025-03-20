@@ -10,16 +10,19 @@ export default function CurrentPlaylistSpinsList({
 }: CurrentPlaylistSpinsProps) {
   return (
     <div
-      className={`mt-8 border-2 ${dropdown ? 'border-white' : 'border-black'} overflow-y-auto`}
+      className={`my-8 border-2 ${dropdown ? 'border-white' : 'border-black'} overflow-y-scroll`}
     >
       {spins
         ? spins.map((spin) => (
-            <div className="border-w mx-2 flex gap-2 border-b" key={spin.id}>
-              <div className="w-1/4 flex-shrink-0">
-                {new Date(spin.start).toLocaleTimeString()}
+            <div className="mx-auto flex gap-2 border-b" key={spin.id}>
+              <div className="w-1/6 flex-shrink-0">
+                {new Date(spin.start).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
               </div>
 
-              <div className="truncate">
+              <div className="">
                 {`${spin.song} - 
                   ${spin.artist}, 
                   ${spin.release}

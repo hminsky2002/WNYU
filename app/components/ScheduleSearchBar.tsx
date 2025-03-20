@@ -57,7 +57,7 @@ export default function ScheduleSearchBar({
 
   return (
     <>
-      <div className="flex items-center justify-center space-x-2 bg-white pb-4 pt-2 md:hidden">
+      <div className="flex items-center justify-center space-x-2 bg-white py-4 md:hidden">
         <ChevronLeftIcon className="h-8 w-8" onClick={handlePreviousDay} />
         <div className="w-2/3 text-center text-4xl font-extrabold">
           {nameFilter ? 'search' : daysOfWeek[dayOfWeek]}
