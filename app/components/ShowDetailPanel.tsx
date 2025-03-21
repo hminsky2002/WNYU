@@ -27,7 +27,7 @@ export default async function ShowDetailPanel({
                   day: 'numeric',
                   year: 'numeric',
                 })}
-                {/* How can I add a style to the last one... (mr-auto so it aligns left)*/}
+                {/* How can I add a style to the last one... (mr-auto so it aligns left) */}
               </div>
             </Link>
           ))}
