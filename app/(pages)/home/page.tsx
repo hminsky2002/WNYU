@@ -18,8 +18,8 @@ export default async function Home() {
     tags: ['videoCard'],
   });
   return (
-    <div className="container static flex flex-col-reverse justify-between gap-8 pt-6 md:mx-auto md:flex-row md:gap-0">
-      <div className="mb-10 flex flex-col gap-16 md:w-2/3">
+    <div className="container static flex flex-col-reverse justify-between gap-4 px-4 py-4 pt-4 md:mx-auto md:flex-row md:gap-0 md:py-6">
+      <div className="flex flex-col gap-16 md:w-2/3">
         <div className="hidden h-[500px] md:block">
           <AnnouncementsCarousel announcements={announcements} />
         </div>
