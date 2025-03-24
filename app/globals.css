@@ -5,3 +5,45 @@
 body {
   @apply transition-all duration-300 ease-in-out;
 }
+
+h1,
+.h1,
+.hxxl {
+  @apply text-[4.8rem] font-normal leading-[0.9] tracking-normal lg:text-[9rem] lg:leading-[0.8];
+}
+
+h2,
+.h2,
+.hxl {
+  @apply text-[4.5rem] font-normal leading-[0.88] tracking-[0.045rem] lg:text-[5.8rem] lg:tracking-[0.058rem];
+}
+
+h3,
+.h3,
+.hl {
+  @apply text-[3.6rem] font-normal leading-[0.89] tracking-normal lg:text-[4.8rem];
+}
+
+h4,
+.h4,
+.medium {
+  @apply text-[3.2rem] font-normal leading-[0.89] tracking-normal;
+}
+
+.cta {
+  @apply text-[2rem] font-medium leading-none tracking-normal;
+}
+
+.menu {
+  @apply text-[1.6rem] font-normal leading-none tracking-normal lg:text-[1.4rem];
+}
+
+.input {
+  @apply text-[1.6rem] font-normal leading-none tracking-normal;
+}
+
+body,
+.greep,
+.body {
+  @apply text-[1.4rem] font-normal leading-[1.4] tracking-normal;
+}

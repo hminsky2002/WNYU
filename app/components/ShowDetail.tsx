@@ -17,11 +17,9 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           alt="show image"
           className="h-[300px] w-full border-2 border-black object-cover md:mt-1"
         />
-        <div className="pt-4 text-4xl font-extrabold">{show.title}</div>
-        <div className="text-lg">
-          hosted by: {show.personas?.[0].name ?? 'unhosted'}
-        </div>
-        <div className="text-lg">
+        <h4 className="pt-4">{show.title}</h4>
+        <p>hosted by: {show.personas?.[0].name ?? 'unhosted'}</p>
+        <div>
           {new Date(show.start).toLocaleTimeString('en-US', {
             weekday: 'long',
             hour: 'numeric',
@@ -36,9 +34,7 @@ export default function ShowDetail({ show }: ShowDetailProps) {
           })}
         </div>
       </div>
-      <div className="mt-4">
-        {trimSpinitronDescriptionString(show.description)}
-      </div>
+      <p className="mt-4">{trimSpinitronDescriptionString(show.description)}</p>
     </div>
   );
 }

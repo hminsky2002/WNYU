@@ -38,12 +38,10 @@ export default function AnnouncementsCarousel({
             className="object-cover"
             alt={announcement.title || ''}
           />
-          <div className="absolute bottom-0 h-1/3 w-full bg-black text-white md:h-1/5">
+          <div className="absolute bottom-0 w-full bg-black text-white md:h-1/5">
             <div className="mx-2 my-2 md:mx-4 md:my-4">
-              <div className="text-xl font-extrabold md:text-4xl">
-                {announcement.title}
-              </div>
-              <div className="text-sm md:text-lg">{announcement.subtitle}</div>
+              <h4>{announcement.title}</h4>
+              <p className="ml-1">{announcement.subtitle}</p>
             </div>
           </div>
         </SwiperSlide>

@@ -25,15 +25,15 @@ export default function UpcomingList() {
 
   return (
     <div className="mt-4 w-full text-left">
-      <div>UP NEXT:</div>
+      <p>UP NEXT:</p>
       {upcoming && upcoming[1] ? (
-        <div className="text-4xl font-extrabold">
+        <h4 className="font-bold">
           <Link href={upcoming[1]?.id ? `/schedule/${upcoming[1]?.id}` : '/'}>
             {upcoming[1].title}
           </Link>
-        </div>
+        </h4>
       ) : (
-        <div className="text-4xl font-extrabold">WNYU JUKEBOX</div>
+        <h4 className="font-bold">WNYU JUKEBOX</h4>
       )}
     </div>
   );

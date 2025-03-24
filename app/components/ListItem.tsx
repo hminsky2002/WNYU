@@ -18,13 +18,13 @@ export default function ListItem({
     <>
       <div className={`cursor-pointer transition-colors hover:text-gray-400`}>
         <Link href={url ? `${url}` : '/'}>
-          <div className="text-5xl font-extrabold">{title}</div>
-          <div className="text-xl">hosted by {host}</div>
+          <h4 className="">{title}</h4>
+          <p className="">hosted by {host}</p>
           {start && end && (
-            <div className="text-large font-thin">
+            <p className="">
               {start} {' - '}
               {end}
-            </div>
+            </p>
           )}
         </Link>
       </div>

@@ -41,7 +41,7 @@ export default function NavMenu() {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="fixed left-0 top-0 z-40 flex h-auto w-full items-start justify-start overflow-y-auto bg-black p-4"
         >
-          <div className="my-7 ml-7 flex flex-col space-y-7 text-3xl font-bold text-white">
+          <div className="h3 my-7 ml-7 flex cursor-pointer flex-col space-y-7 text-white">
             <Link href="/home" onClick={handleClose}>
               home
             </Link>
@@ -64,12 +64,34 @@ export default function NavMenu() {
           />
         </motion.div>
       </div>
-      <div className="hidden flex-row items-end justify-end space-x-4 text-xl font-bold text-black md:flex">
-        <Link href="/home">HOME</Link>
-        <Link href="/schedule">SCHEDULE</Link>
-        <Link href="/about">ABOUT</Link>
-        <Link href="/podcasts">PODCASTS</Link>
-        <Link href="/sports">SPORTS</Link>
+      <div className="hidden cursor-pointer flex-row items-end justify-end space-x-4 text-xl text-black md:flex">
+        <Link className="hover:text-red-600" href="/home">
+          HOME
+        </Link>
+        <Link
+          className="transition-colors ease-in-out hover:text-red-600"
+          href="/schedule"
+        >
+          SCHEDULE
+        </Link>
+        <Link
+          className="transition-colors ease-in-out hover:text-red-600"
+          href="/about"
+        >
+          ABOUT
+        </Link>
+        <Link
+          className="transition-colors ease-in-out hover:text-red-600"
+          href="/podcasts"
+        >
+          PODCASTS
+        </Link>
+        <Link
+          className="transition-colors ease-in-out hover:text-red-600"
+          href="/sports"
+        >
+          SPORTS
+        </Link>
       </div>
     </>
   );
