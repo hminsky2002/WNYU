@@ -59,13 +59,12 @@ export default function ScheduleSearchBar({
     <>
       <div className="flex items-center justify-center space-x-2 bg-white py-4 md:hidden">
         <ChevronLeftIcon className="h-8 w-8" onClick={handlePreviousDay} />
-        <div className="w-2/3 text-center text-4xl font-extrabold">
+        <h4 className="w-2/3 text-center">
           {nameFilter ? 'search' : daysOfWeek[dayOfWeek]}
-        </div>
+        </h4>
         <ChevronRightIcon className="h-8 w-8" onClick={handleNextDay} />
       </div>
 
-      {/* desktop */}
       <div className="hidden bg-white md:flex">
         <div className="flex py-1">
           <MagnifyingGlassIcon className="mr-2 h-8 w-8" onClick={onClick} />
@@ -83,21 +82,22 @@ export default function ScheduleSearchBar({
             />
           </div>
         </div>
-
-        {daysOfWeek.map((day) => (
-          <div
-            key={day}
-            className={`cursor-pointer px-3 py-1 text-lg font-bold ${
-              dayFilter === day ? 'text-black' : 'text-gray-400'
-            }`}
-            onClick={() => {
-              setDayFilter(day);
-              setNameFilter('');
-            }}
-          >
-            {day}
-          </div>
-        ))}
+        <div className="flex flex-wrap">
+          {daysOfWeek.map((day) => (
+            <div
+              key={day}
+              className={`cursor-pointer px-3 py-1 ${
+                dayFilter === day ? 'text-black' : 'text-gray-400'
+              }`}
+              onClick={() => {
+                setDayFilter(day);
+                setNameFilter('');
+              }}
+            >
+              {day}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="fixed bottom-0 left-0 w-full border-t-2 border-black bg-white p-2 md:hidden">

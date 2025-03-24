@@ -23,9 +23,9 @@ export default async function Home() {
         <div className="hidden h-[500px] md:block">
           <AnnouncementsCarousel announcements={announcements} />
         </div>
-        <p className="mt-6 text-center text-4xl font-bold md:mt-auto">
+        <h2 className="mt-6 text-center md:mt-auto">
           the latest videos from wnyu
-        </p>
+        </h2>
         <div className="flex flex-col gap-8">
           {videos.map((video) => {
             if (video.videoLink !== null)
@@ -38,7 +38,7 @@ export default async function Home() {
       <div className="md:sticky md:top-[5.5rem] md:h-[calc(100dvh-4rem)]">
         <CurrentShowPanel />
       </div>
-      <div className="h-[250px] w-full md:hidden">
+      <div className="h-[450px] w-full md:hidden">
         <AnnouncementsCarousel announcements={announcements} />
       </div>
     </div>

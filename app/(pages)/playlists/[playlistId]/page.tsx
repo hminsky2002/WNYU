@@ -28,52 +28,48 @@ export default async function Page({ params }: { params: PlaylistParams }) {
   ).then((res) => res.json())) as Persona;
 
   return (
-    <div className="h-[calc(100dvh-4rem)] pt-4 md:flex">
+    <div className="h-[calc(100dvh-4rem)] pt-4 md:flex md:items-start">
       <div className="md:w-1/2">
-        <div className="p-4 md:fixed md:m-8 md:w-[50%]">
-          <div className="mb-2 flex gap-x-2">
+        <div className="p-4 md:fixed md:w-[50%]">
+          <div className="mb-2 flex items-center gap-x-2">
             <Link href={`/schedule/${playlist.show_id}`} className="md:block">
-              <ChevronLeftIcon className="mr-6 size-6" />
+              <ChevronLeftIcon className="mr-6 h-6 w-6" />
             </Link>
-            <div className="text-xl font-bold md:font-medium">
-              {new Date(playlist.start).toDateString()}
-            </div>
+            <p>{new Date(playlist.start).toDateString()}</p>
           </div>
-          <div className="text-6xl font-extrabold md:pb-4 md:text-8xl">
-            {playlist.title}
-          </div>
-          <div className="text-xl md:text-2xl">{`hosted by ${persona.name}`}</div>
-          <div className="text-xl font-thin md:text-2xl">
+          <h1 className="md:pb-4">{playlist.title}</h1>
+          <p>{`hosted by ${persona.name}`}</p>
+          <p>
             {new Date(playlist.start).toLocaleTimeString('en-US', {
               hour: 'numeric',
               minute: 'numeric',
               hour12: true,
-            })}{' '}
+            })}
             {' - '}
             {new Date(playlist.end).toLocaleTimeString('en-US', {
               hour: 'numeric',
               minute: 'numeric',
               hour12: true,
             })}
-          </div>
-          <div className="hidden text-xl md:block">
+          </p>
+          <p className="hidden max-h-[400px] max-w-[600px] overflow-scroll md:block">
             {trimSpinitronDescriptionString(playlist.description)}
-          </div>
+          </p>
         </div>
       </div>
-      <div className="flex flex-col p-4 text-xl md:w-1/2 md:px-20">
+      <div className="flex flex-col p-4 md:w-1/2 md:px-20">
         {spins.items &&
           spins.items.map((spin, index) => (
             <div className="mx-2 flex gap-x-2 pb-4" key={spin.id}>
-              <div>{index + 1}.</div>
-              <div>
+              <p>{index + 1}.</p>
+              <p>
                 {`${spin.song} - 
                   ${spin.artist}, 
                   ${spin.release}
                   (${spin.label})
                   ${spin.released}
                   `}
-              </div>
+              </p>
             </div>
           ))}
       </div>

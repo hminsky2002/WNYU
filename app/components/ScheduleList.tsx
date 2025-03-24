@@ -33,7 +33,7 @@ export default function ScheduleList({ shows }: ScheduleListProps) {
   }, [dayFilter, nameFilter, shows]);
 
   return (
-    <div className="">
+    <div>
       <ScheduleSearchBar
         dayFilter={dayFilter}
         nameFilter={nameFilter}
