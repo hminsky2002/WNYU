@@ -51,7 +51,7 @@ export default function NavMenu() {
             <Link href="/about" onClick={handleClose}>
               about
             </Link>
-            <Link href="/podcasts" onClick={handleClose}>
+            {/* <Link href="/podcasts" onClick={handleClose}>
               podcasts
             </Link>
             <Link href="/sports" onClick={handleClose}>
@@ -60,6 +60,7 @@ export default function NavMenu() {
             <Link href="https://staticmag.org" onClick={handleClose}>
               static
             </Link>
+             */}
           </div>
           <XMarkIcon
             className="z-100 absolute right-0 top-0 size-14 text-white"
@@ -85,22 +86,16 @@ export default function NavMenu() {
         </Link>
         <Link
           className="transition-colors ease-in-out hover:text-red-600"
-          href="/podcasts"
-        >
-          PODCASTS
-        </Link>
-        <Link
-          className="transition-colors ease-in-out hover:text-red-600"
-          href="/sports"
-        >
-          SPORTS
-        </Link>
-        <Link
-          className="transition-colors ease-in-out hover:text-red-600"
           href="https://staticmag.org"
         >
           STATIC
         </Link>
+        <div className="cursor-not-allowed text-gray-400 transition-colors ease-in-out">
+          PODCASTS
+        </div>
+        <div className="cursor-not-allowed text-gray-400 transition-colors ease-in-out">
+          SPORTS
+        </div>
       </div>
     </>
   );

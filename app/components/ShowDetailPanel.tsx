@@ -12,7 +12,7 @@ export default async function ShowDetailPanel({
   playlists,
 }: ShowDetailPanelProps) {
   return (
-    <div className="flex h-[calc(100dvh-4rem)] flex-col pt-4 md:overflow-y-scroll md:p-6">
+    <div className="flex flex-col pt-4 md:overflow-y-scroll md:p-6">
       <div className="bg-white">
         <ShowDetail show={show} />
       </div>

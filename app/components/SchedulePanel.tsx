@@ -30,7 +30,7 @@ export default function SchedulePanel({
       </div>
 
       <div className="hidden flex-row justify-between md:flex">
-        <div className="h-[calc(100dvh-4rem)] w-3/5 overflow-y-scroll p-6">
+        <div className="w-3/5 overflow-y-scroll p-6">
           <ScheduleList shows={shows} />
         </div>
 
