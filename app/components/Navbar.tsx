@@ -56,14 +56,16 @@ export default function Navbar({
             onClick={handleClick}
             className="enable-animation flex cursor-default overflow-hidden"
           >
-            <Marquee autoFill={true} gradient={true} gradientWidth={100}>
-              <div className="flex items-center px-4">
-                <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                <span>
-                  Live Now: {metadata?.playlist_title} with {metadata?.dj}
-                </span>
-              </div>
-            </Marquee>
+            <div>
+              <Marquee autoFill={true} gradient={!context?.toggle} gradientWidth={100}>
+                <div className="flex items-center px-4">
+                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
+                  <span>
+                    Live Now: {metadata?.playlist_title} with {metadata?.dj}
+                  </span>
+                </div>
+              </Marquee>
+            </div>
           </div>
           <NavMenu />
         </div>
