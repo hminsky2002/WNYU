@@ -40,7 +40,7 @@ export default function AnnouncementsCarousel({
           />
           <div className="absolute bottom-0 w-full bg-black text-white md:h-1/5">
             <div className="mx-2 my-2 md:mx-4 md:my-4">
-              <h4>{announcement.title}</h4>
+              <h4 className="break-words">{announcement.title}</h4>
               <p className="ml-1">{announcement.subtitle}</p>
             </div>
           </div>

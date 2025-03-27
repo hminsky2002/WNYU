@@ -23,8 +23,9 @@ export default async function ShowDetailPanel({
         {playlists &&
           playlists.map((playlist) => (
             <div key={playlist.id}>
+              {/* mobile */}
               <Link className="md:hidden" href={`/playlists/${playlist.id}`}>
-                <div className="flex h-full w-full cursor-pointer flex-col justify-around p-4 transition-all hover:opacity-50">
+                <div className="w-full underline transition-all hover:opacity-50">
                   {new Date(playlist.start).toLocaleString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -32,6 +33,7 @@ export default async function ShowDetailPanel({
                   })}
                 </div>
               </Link>
+              {/* desktop */}
               <Link
                 className="hidden md:block"
                 href={`/playlists/${playlist.id}`}

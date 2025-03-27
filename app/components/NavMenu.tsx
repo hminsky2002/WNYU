@@ -57,6 +57,9 @@ export default function NavMenu() {
             <Link href="/sports" onClick={handleClose}>
               sports
             </Link>
+            <Link href="https://staticmag.org" onClick={handleClose}>
+              static
+            </Link>
           </div>
           <XMarkIcon
             className="z-100 absolute right-0 top-0 size-14 text-white"
@@ -91,6 +94,12 @@ export default function NavMenu() {
           href="/sports"
         >
           SPORTS
+        </Link>
+        <Link
+          className="transition-colors ease-in-out hover:text-red-600"
+          href="https://staticmag.org"
+        >
+          STATIC
         </Link>
       </div>
     </>

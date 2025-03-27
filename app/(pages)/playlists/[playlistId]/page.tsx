@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: PlaylistParams }) {
   return (
     <div className="h-[calc(100dvh-4rem)] md:flex md:items-start">
       <div className="md:w-1/2">
-        <div className="mr-auto overflow-y-scroll p-6 md:fixed md:w-[50%]">
+        <div className="mr-auto overflow-y-scroll p-6 pb-0 md:fixed md:w-[50%] md:pb-6">
           <Link
             href={`/schedule/${playlist.show_id}`}
             className="flex flex-row gap-x-2 pb-2"
