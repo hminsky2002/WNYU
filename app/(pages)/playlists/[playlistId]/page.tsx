@@ -10,40 +10,30 @@ export default async function Page({ params }: { params: PlaylistParams }) {
 
   const playlist = (await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/playlists/${playlistId}`,
-    {
-      cache: 'force-cache',
-    },
+    { cache: 'force-cache' },
   ).then((res) => res.json())) as Playlist;
   const spins: SpinsResponse = (await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/spins?playlist_id=${playlistId}&count=100`,
-    {
-      cache: 'force-cache',
-    },
+    { cache: 'force-cache' },
   ).then((res) => res.json())) as SpinsResponse;
   const persona: Persona = (await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/personas/${playlist.persona_id}`,
-    {
-      cache: 'force-cache',
-    },
+    { cache: 'force-cache' },
   ).then((res) => res.json())) as Persona;
 
   return (
-    <div className="h-[calc(100dvh-4rem)] md:flex md:items-start">
+    <div className="pt-4 md:flex md:items-start">
       <div className="md:w-1/2">
-        <div className="mr-auto overflow-y-scroll p-6 pb-0 md:fixed md:w-[50%] md:pb-6">
-          <Link
-            href={`/schedule/${playlist.show_id}`}
-            className="flex flex-row gap-x-2 pb-2"
-          >
-            <ChevronLeftIcon className="mr-6 w-6" />
-
+        <div className="z-10 p-4 md:top-20">
+          <div className="mb-2 flex items-center gap-x-2">
+            <Link href={`/schedule/${playlist.show_id}`} className="md:block">
+              <ChevronLeftIcon className="mr-6 h-6 w-6" />
+            </Link>
             <p>{new Date(playlist.start).toDateString()}</p>
-          </Link>
-          <h1 className="relative -z-10 max-w-full break-words md:pb-4">
-            {playlist.title}
-          </h1>
-          <p>{`hosted by ${persona.name}`}</p>
-          <p className="pb-2">
+          </div>
+          <h1 className="md:pb-4">{playlist.title}</h1>
+          <p className="pt-4">{`hosted by ${persona.name}`}</p>
+          <p>
             {new Date(playlist.start).toLocaleTimeString('en-US', {
               hour: 'numeric',
               minute: 'numeric',
@@ -56,12 +46,12 @@ export default async function Page({ params }: { params: PlaylistParams }) {
               hour12: true,
             })}
           </p>
-          <p className="hidden max-h-[400px] max-w-[600px] md:block">
+          <p className="mt-4 hidden md:block">
             {trimSpinitronDescriptionString(playlist.description)}
           </p>
         </div>
       </div>
-      <div className="flex flex-col p-6 md:w-1/2">
+      <div className="flex flex-col p-4 md:w-1/2 md:px-20">
         {spins.items &&
           spins.items.map((spin, index) => (
             <div className="mx-2 flex gap-x-2 pb-4" key={spin.id}>

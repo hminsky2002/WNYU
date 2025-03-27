@@ -30,6 +30,7 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('podcast')
         .title('Podcast')
         .icon(MdOutlinePodcasts),
+      S.documentTypeListItem('footer').title('Footer'),
       S.listItem()
         .title('Articles')
         .icon(AddDocumentIcon)
