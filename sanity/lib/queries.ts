@@ -146,3 +146,12 @@ export const PODCAST_BY_SLUG_QUERY = (slug: string) => groq`
     description
   }
 `;
+
+export const FOOTER_QUERY = groq`
+  *[_type == "footer"][0]{
+    'id': _id,
+    blockText,
+    footerImage,
+    links
+  }
+`;

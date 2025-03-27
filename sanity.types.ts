@@ -68,6 +68,49 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Footer = {
+  _id: string;
+  _type: 'footer';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  blockText?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }>;
+  footerImage?: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  };
+  links?: Array<{
+    title?: string;
+    url?: string;
+    _key: string;
+  }>;
+};
+
 export type Podcast = {
   _id: string;
   _type: 'podcast';
@@ -303,6 +346,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | Footer
   | Podcast
   | Article
   | Slug
@@ -579,6 +623,45 @@ export type PODCAST_QUERYResult = {
     _key: string;
   }> | null;
 } | null;
+// Variable: FOOTER_QUERY
+// Query: *[_type == "footer"][0]{    'id': _id,    blockText,    footerImage,    links  }
+export type FOOTER_QUERYResult = {
+  id: string;
+  blockText: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }> | null;
+  footerImage: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: 'image';
+  } | null;
+  links: Array<{
+    title?: string;
+    url?: string;
+    _key: string;
+  }> | null;
+} | null;
 
 // Query TypeMap
 import '@sanity/client';
@@ -595,5 +678,6 @@ declare module '@sanity/client' {
     '\n  *[_type == "article"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLE_QUERYResult;
     '\n  *[_type == "podcast"]| order(_createdAt desc){\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCASTS_QUERYResult;
     '\n  *[_type == "podcast"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCAST_QUERYResult;
+    '\n  *[_type == "footer"][0]{\n    \'id\': _id,\n    blockText,\n    footerImage,\n    links\n  }\n': FOOTER_QUERYResult;
   }
 }

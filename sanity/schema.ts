@@ -5,6 +5,7 @@ import {
   videoCardType,
   articleType,
   podcastType,
+  footerType,
 } from './schemaTypes';
 import { type SchemaTypeDefinition } from 'sanity';
 
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     videoCardType,
     articleType,
     podcastType,
+    footerType,
   ],
 };
