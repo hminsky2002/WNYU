@@ -57,7 +57,11 @@ export default function Navbar({
             className="enable-animation flex cursor-default overflow-hidden"
           >
             <div>
-              <Marquee autoFill={true} gradient={!context?.toggle} gradientWidth={100}>
+              <Marquee
+                autoFill={true}
+                gradient={!context?.toggle}
+                gradientWidth={100}
+              >
                 <div className="flex items-center px-4">
                   <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
                   <span>
