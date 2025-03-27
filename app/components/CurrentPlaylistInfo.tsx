@@ -63,13 +63,15 @@ export default function CurrentPlaylistInfo({
           </div>
           {playlist?.image && (
             <div className="group relative mt-4 h-full w-full bg-gray-500 text-white">
-              <Image
-                src={metadata?.cover_art_url ?? '/placeholder.png'}
-                alt={`${metadata?.song_name} cover image`}
-                width={400}
-                height={400}
-                className={`text-gray-500 opacity-50`}
-              />
+              <div className="min-h-[300px] min-w-[300px]">
+                <Image
+                  src={metadata?.cover_art_url ?? '/placeholder.png'}
+                  alt={`${metadata?.song_name} cover image`}
+                  width={400}
+                  height={400}
+                  className={`text-gray-500 opacity-50`}
+                />
+              </div>
               <div className="absolute bottom-4 mx-4">
                 <h4 className="text-ellipsis">{metadata?.song_name}</h4>
                 <p className="text-ellipsis">{metadata?.artist_name}</p>
