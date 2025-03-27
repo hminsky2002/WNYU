@@ -231,6 +231,7 @@ export type Announcement = {
     crop?: SanityImageCrop;
     _type: 'image';
   };
+  link?: string;
 };
 
 export type ManagementCard = {
@@ -422,7 +423,7 @@ export type ABOUT_TEXT_QUERYResult = {
   }> | null;
 } | null;
 // Variable: ANNOUNCEMENTS_QUERY
-// Query: *[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}
+// Query: *[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage,link}
 export type ANNOUNCEMENTS_QUERYResult = Array<{
   title: string | null;
   subtitle: string | null;
@@ -437,9 +438,10 @@ export type ANNOUNCEMENTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: 'image';
   } | null;
+  link: string | null;
 }>;
 // Variable: ANNOUNCEMENT_QUERY
-// Query: *[_type=="announcement"][0]{title,subtitle,announcementImage}
+// Query: *[_type=="announcement"][0]{title,subtitle,announcementImage,link}
 export type ANNOUNCEMENT_QUERYResult = {
   title: string | null;
   subtitle: string | null;
@@ -454,6 +456,7 @@ export type ANNOUNCEMENT_QUERYResult = {
     crop?: SanityImageCrop;
     _type: 'image';
   } | null;
+  link: string | null;
 } | null;
 // Variable: VIDEO_CARDS_QUERY
 // Query: *[_type=="videoCard"]|order(_createdAt desc){name,videoLink}
@@ -670,8 +673,8 @@ declare module '@sanity/client' {
     '*[_type=="managementCard"]|order(priority asc){\'id\':_id,name,role,email,picture}': MANAGEMENT_CARDS_QUERYResult;
     '*[_type=="managementCard"][0]{\'id\':_id,name,role,email,picture}': MANAGEMENT_CARD_QUERYResult;
     '*[_type=="textBlock" && name=="About"][0]{content}': ABOUT_TEXT_QUERYResult;
-    '*[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage}': ANNOUNCEMENTS_QUERYResult;
-    '*[_type=="announcement"][0]{title,subtitle,announcementImage}': ANNOUNCEMENT_QUERYResult;
+    '*[_type=="announcement"]|order(_createdAt desc){title,subtitle,announcementImage,link}': ANNOUNCEMENTS_QUERYResult;
+    '*[_type=="announcement"][0]{title,subtitle,announcementImage,link}': ANNOUNCEMENT_QUERYResult;
     '*[_type=="videoCard"]|order(_createdAt desc){name,videoLink}': VIDEO_CARDS_QUERYResult;
     '*[_type=="videoCard"][0]{name,videoLink}': VIDEO_CARD_QUERYResult;
     '\n  *[_type == "article"]\n  | order(_createdAt desc) | order(priority asc){\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLES_QUERYResult;

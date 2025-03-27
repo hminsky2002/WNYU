@@ -51,14 +51,14 @@ export default function NavMenu() {
             <Link href="/about" onClick={handleClose}>
               about
             </Link>
+            <Link href="https://staticmag.org" onClick={handleClose}>
+              static
+            </Link>
             {/* <Link href="/podcasts" onClick={handleClose}>
               podcasts
             </Link>
             <Link href="/sports" onClick={handleClose}>
               sports
-            </Link>
-            <Link href="https://staticmag.org" onClick={handleClose}>
-              static
             </Link>
              */}
           </div>

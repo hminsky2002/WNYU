@@ -20,5 +20,9 @@ export const announcementType = defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'link',
+      type: 'string',
+    }),
   ],
 });

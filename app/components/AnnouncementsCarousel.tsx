@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 import { urlFor } from '@/sanity/lib/image';
 import type { ANNOUNCEMENTS_QUERYResult } from '../../sanity.types';
 import 'swiper/css';
@@ -38,12 +39,23 @@ export default function AnnouncementsCarousel({
             className="object-cover"
             alt={announcement.title || ''}
           />
-          <div className="absolute bottom-0 w-full bg-black text-white md:h-1/5">
-            <div className="mx-2 my-2 md:mx-4 md:my-4">
-              <h4 className="break-words">{announcement.title}</h4>
-              <p className="ml-1">{announcement.subtitle}</p>
+          {announcement.link ? (
+            <Link href={announcement.link}>
+              <div className="absolute bottom-0 w-full bg-black text-white md:h-1/5">
+                <div className="mx-2 my-2 md:mx-4 md:my-4">
+                  <h4 className="break-words">{announcement.title}</h4>
+                  <p className="ml-1">{announcement.subtitle}</p>
+                </div>
+              </div>
+            </Link>
+          ) : (
+            <div className="absolute bottom-0 w-full bg-black text-white md:h-1/5">
+              <div className="mx-2 my-2 md:mx-4 md:my-4">
+                <h4 className="break-words">{announcement.title}</h4>
+                <p className="ml-1">{announcement.subtitle}</p>
+              </div>
             </div>
-          </div>
+          )}
         </SwiperSlide>
       ))}
     </Swiper>

@@ -72,9 +72,9 @@ export default function CurrentPlaylistInfo({
                   className={`text-gray-500 opacity-50`}
                 />
               </div>
-              <div className="absolute bottom-4 mx-4">
-                <h4 className="text-ellipsis">{metadata?.song_name}</h4>
-                <p className="text-ellipsis">{metadata?.artist_name}</p>
+              <div className="absolute bottom-4 max-w-full px-4">
+                <h4 className="break-words">{metadata?.song_name}</h4>
+                <p className="break-words">{metadata?.artist_name}</p>
               </div>
             </div>
           )}
