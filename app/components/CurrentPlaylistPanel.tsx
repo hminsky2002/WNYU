@@ -18,7 +18,7 @@ export default function CurrentPlaylistPanel({
     <div
       className={`mx-auto w-full content-center justify-center ${dropdown ? 'text-white' : ''}`}
     >
-      <div className="mx-4 my-4 flex flex-col items-center justify-center py-4">
+      <div className="mx-4 my-4 flex flex-col items-center justify-center">
         <CurrentPlaylistInfo
           playlist={current?.playlist}
           metadata={current?.metadata}
