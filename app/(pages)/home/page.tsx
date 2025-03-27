@@ -1,4 +1,4 @@
-import CurrentShowPanel from '@/app/components/CurrentShowPanel';
+import CurrentPlaylistPanel from '@/app/components/CurrentPlaylistPanel';
 import VideoCard from '@/app/components/VideoCard';
 import AnnouncementsCarousel from '@/app/components/AnnouncementsCarousel';
 import { sanityFetch } from '@/sanity/lib/client';
@@ -18,7 +18,7 @@ export default async function Home() {
     tags: ['videoCard'],
   });
   return (
-    <div className="container static flex flex-col-reverse justify-between gap-4 px-4 py-4 pt-4 md:mx-auto md:flex-row md:gap-0 md:py-6">
+    <div className="container static flex flex-col-reverse justify-between gap-4 p-4 md:mx-auto md:flex-row md:gap-0 md:py-6">
       <div className="flex flex-col gap-16 md:w-2/3">
         <div className="hidden h-[500px] md:block">
           <AnnouncementsCarousel announcements={announcements} />
@@ -35,8 +35,8 @@ export default async function Home() {
           })}
         </div>
       </div>
-      <div className="md:sticky md:top-[5.5rem] md:h-[calc(100dvh-4rem)]">
-        <CurrentShowPanel />
+      <div className="mx-auto border-2 border-black md:sticky md:top-[5.5rem] md:mx-0 md:h-[calc(100dvh-4rem)] md:max-w-[400px]">
+        <CurrentPlaylistPanel />
       </div>
       <div className="h-[450px] w-full md:hidden">
         <AnnouncementsCarousel announcements={announcements} />

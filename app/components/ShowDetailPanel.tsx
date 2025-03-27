@@ -16,12 +16,15 @@ export default async function ShowDetailPanel({
       <div className="bg-white">
         <ShowDetail show={show} />
       </div>
-      <div className="mx-auto flex flex-col flex-wrap gap-6 pb-6 md:flex-row md:justify-between">
+      <div className="mb-6 w-full border-b-2 border-black pb-2">
+        <h4>Playlists:</h4>
+      </div>
+      <div className="flex flex-col flex-wrap gap-6 pb-6 md:justify-start">
         {playlists &&
           playlists.map((playlist) => (
             <div key={playlist.id}>
               <Link className="md:hidden" href={`/playlists/${playlist.id}`}>
-                <div className="h4 flex h-full w-full cursor-pointer flex-col justify-around bg-black p-4 text-white transition-all hover:opacity-50 md:h-[100px] md:w-[10rem]">
+                <div className="flex h-full w-full cursor-pointer flex-col justify-around p-4 transition-all hover:opacity-50">
                   {new Date(playlist.start).toLocaleString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -33,7 +36,7 @@ export default async function ShowDetailPanel({
                 className="hidden md:block"
                 href={`/playlists/${playlist.id}`}
               >
-                <div className="flex h-full w-full cursor-pointer flex-col justify-around bg-black p-4 text-white transition-all hover:opacity-50 md:h-[100px] md:w-[10rem]">
+                <div className="cursor-pointer underline transition-all hover:opacity-50">
                   {new Date(playlist.start).toLocaleString('en-US', {
                     month: 'long',
                     day: 'numeric',
