@@ -54,20 +54,22 @@ export default function Navbar({
           <Stream />
           <div
             onClick={handleClick}
-            className="enable-animation flex cursor-default overflow-hidden"
+            className="flex cursor-default items-center overflow-hidden"
           >
-            <div>
+            {/* Marquee */}
+            <div className="flex-grow">
               <Marquee
                 autoFill={true}
                 gradient={!context?.toggle}
                 gradientWidth={100}
               >
-                <div className="flex items-center px-4">
-                  <div className="mr-2 h-[1rem] w-[1rem] rounded-full bg-red-500"></div>
-                  <span>
-                    Live Now: {metadata?.playlist_title} with {metadata?.dj}
-                  </span>
+                <div className="mr-2 flex-shrink-0 px-2">
+                  <div className="h-[1rem] w-[1rem] rounded-full bg-red-500" />
                 </div>
+
+                <span>
+                  Live Now: {metadata?.playlist_title} with {metadata?.dj}
+                </span>
               </Marquee>
             </div>
           </div>
