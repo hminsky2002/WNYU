@@ -15,20 +15,20 @@ export default function CurrentPlaylistSpinsList({
       {spins
         ? spins.map((spin) => (
             <div className="mx-auto flex gap-2 border-b" key={spin.id}>
-              <div className="w-1/6 flex-shrink-0">
+              <p className="w-1/6 flex-shrink-0 text-lg">
                 {new Date(spin.start).toLocaleTimeString([], {
                   hour: '2-digit',
                   minute: '2-digit',
                 })}
-              </div>
+              </p>
 
-              <div className="">
+              <p className="text-lg">
                 {`${spin.song} - 
                   ${spin.artist}, 
                   ${spin.release}
                   (${spin.label})
                   ${spin.released}`}
-              </div>
+              </p>
             </div>
           ))
         : null}
