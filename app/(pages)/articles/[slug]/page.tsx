@@ -18,7 +18,7 @@ export default async function ArticlePage({
   });
 
   return (
-    <div className="mx-4 pt-20">
+    <div className="m-4">
       <Article article={article} />
     </div>
   );

@@ -15,6 +15,7 @@ export default function SchedulePanel({
 }: SchedulePanelProps) {
   return (
     <>
+      {/* mobile */}
       <div className="mx-4 flex flex-col md:hidden">
         {!activeShow && (
           <div className="w-full pt-4">
@@ -29,8 +30,9 @@ export default function SchedulePanel({
         )}
       </div>
 
-      <div className="hidden flex-row justify-between md:flex">
-        <div className="w-3/5 overflow-y-scroll p-6">
+      {/* desktop */}
+      <div className="hidden flex-row justify-between md:flex md:h-[calc(100dvh-4rem)]">
+        <div className="w-3/5 overflow-y-hidden p-6 pb-0">
           <ScheduleList shows={shows} />
         </div>
 
