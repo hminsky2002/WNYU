@@ -71,13 +71,23 @@ export default function CurrentPlaylistInfo({
           {playlist?.image && (
             <div className="group relative mt-4 h-full w-full bg-gray-500 text-white">
               <div className="min-h-[300px] min-w-[300px]">
-                <Image
-                  src={metadata?.cover_art_url ?? '/placeholder.png'}
-                  alt={`${metadata?.song_name} cover image`}
-                  width={400}
-                  height={400}
-                  className={`text-gray-500 opacity-50`}
-                />
+                {metadata?.cover_art_url ? (
+                  <Image
+                    src={metadata?.cover_art_url ?? '/placeholder.png'}
+                    alt={`${metadata?.song_name} cover image`}
+                    width={400}
+                    height={400}
+                    className={`text-gray-500 opacity-50`}
+                  />
+                ) : (
+                  <Image
+                    src={'/default-album-cover.png'}
+                    alt={`${metadata?.song_name} cover image`}
+                    width={400}
+                    height={400}
+                    className={`text-gray-500 opacity-50`}
+                  />
+                )}
               </div>
               <div className="absolute bottom-4 max-w-full px-4">
                 <h4 className="break-words">{metadata?.song_name}</h4>
