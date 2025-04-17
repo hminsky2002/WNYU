@@ -7,9 +7,9 @@ import { FOOTER_QUERYResult } from '../../sanity.types';
 export default function Footer({ footer }: { footer: FOOTER_QUERYResult }) {
   const { links, blockText, footerImage } = footer || {};
   return (
-    <div className="overflow-auto border-t-2 border-black bg-white p-4">
-      <div className="mx-auto flex flex-col-reverse items-center justify-between gap-4 md:w-2/3 md:flex-row">
-        <div className="flex w-full flex-col items-start gap-6 text-left md:w-auto md:gap-4">
+    <div className="overflow-hidden border-t-2 border-black bg-white p-4">
+      <div className="mx-auto flex flex-col-reverse items-center justify-between gap-4 lg:w-2/3 lg:flex-row">
+        <div className="flex w-full flex-col items-start gap-6 text-left lg:w-auto lg:gap-4">
           {links?.map((link) =>
             link.url && link.title ? (
               <Link key={link._key} href={link.url}>
