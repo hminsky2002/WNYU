@@ -30,6 +30,11 @@ h4,
   @apply text-[3.2rem] font-normal leading-[0.89] tracking-normal;
 }
 
+h5,
+.h5 {
+  @apply text-[2.4rem] font-normal leading-[0.89] tracking-normal;
+}
+
 .cta {
   @apply text-[2rem] font-medium leading-none tracking-normal;
 }
