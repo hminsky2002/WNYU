@@ -36,8 +36,15 @@ export default function CurrentPlaylistInfo({
           </p>
           {playlist?.start && playlist?.end && (
             <p>
-              {new Date(playlist.start).toLocaleTimeString()} {' - '}
-              {new Date(playlist.end).toLocaleTimeString()}
+              {new Date(playlist.start).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}{' '}
+              {' - '}
+              {new Date(playlist.end).toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
             </p>
           )}
           {playlist?.episode_description && (
