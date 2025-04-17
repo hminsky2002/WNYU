@@ -152,6 +152,6 @@ export const FOOTER_QUERY = groq`
     'id': _id,
     blockText,
     footerImage,
-    links
+    socials
   }
 `;

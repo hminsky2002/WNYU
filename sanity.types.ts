@@ -104,9 +104,21 @@ export type Footer = {
     crop?: SanityImageCrop;
     _type: 'image';
   };
-  links?: Array<{
+  socials?: Array<{
     title?: string;
-    url?: string;
+    link?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: 'reference';
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: 'image';
+    };
+    _type: 'socialLink';
     _key: string;
   }>;
 };
@@ -627,7 +639,7 @@ export type PODCAST_QUERYResult = {
   }> | null;
 } | null;
 // Variable: FOOTER_QUERY
-// Query: *[_type == "footer"][0]{    'id': _id,    blockText,    footerImage,    links  }
+// Query: *[_type == "footer"][0]{    'id': _id,    blockText,    footerImage,    socials  }
 export type FOOTER_QUERYResult = {
   id: string;
   blockText: Array<{
@@ -659,9 +671,21 @@ export type FOOTER_QUERYResult = {
     crop?: SanityImageCrop;
     _type: 'image';
   } | null;
-  links: Array<{
+  socials: Array<{
     title?: string;
-    url?: string;
+    link?: string;
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: 'reference';
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: 'image';
+    };
+    _type: 'socialLink';
     _key: string;
   }> | null;
 } | null;
@@ -681,6 +705,6 @@ declare module '@sanity/client' {
     '\n  *[_type == "article"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    author,\n    date,\n    picture,\n    content,\n    articleType\n  }\n': ARTICLE_QUERYResult;
     '\n  *[_type == "podcast"]| order(_createdAt desc){\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCASTS_QUERYResult;
     '\n  *[_type == "podcast"][0]{\n    \'id\': _id,\n    name,\n    slug,\n    host,\n    picture,\n    spotifyEpisodeURLs,\n    department,\n    description\n  }\n': PODCAST_QUERYResult;
-    '\n  *[_type == "footer"][0]{\n    \'id\': _id,\n    blockText,\n    footerImage,\n    links\n  }\n': FOOTER_QUERYResult;
+    '\n  *[_type == "footer"][0]{\n    \'id\': _id,\n    blockText,\n    footerImage,\n    socials\n  }\n': FOOTER_QUERYResult;
   }
 }

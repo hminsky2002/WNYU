@@ -27,35 +27,44 @@ export const footerType = defineType({
       },
     }),
     defineField({
-      name: 'links',
-      title: 'Links',
+      name: 'socials',
+      title: 'Social Media Icon List',
       type: 'array',
       of: [
         {
           type: 'object',
+          name: 'socialLink',
+          title: 'Social Link',
           fields: [
             defineField({
               name: 'title',
-              title: 'Link Title',
+              title: 'Title',
               type: 'string',
-              validation: (Rule) => Rule.required(),
+              description: 'Name of site',
             }),
             defineField({
-              name: 'url',
-              title: 'Link URL',
+              name: 'link',
+              title: 'Link',
               type: 'url',
-              validation: (Rule) => Rule.required(),
+              description: 'URL for the social media link',
+            }),
+            defineField({
+              name: 'icon',
+              title: 'Icon',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+              description: 'Relevant icon for social media link',
             }),
           ],
           preview: {
             select: {
               title: 'title',
-              subtitle: 'url',
             },
           },
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
   ],
 });
